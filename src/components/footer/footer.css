@@ -1,0 +1,44 @@
+.footer {
+    background-color: black;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-gap: 40px;
+    overflow: hidden;
+    width: 100%;
+    padding: 65px 100px;
+}
+
+.footer a {
+    color: white;
+}
+
+.footer .content svg {
+    margin-bottom: 30px;
+}
+
+.footer .content svg+p {
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.footer h5 {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.footer ul li {
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.1s linear;
+}
+.footer ul li :hover{
+    opacity: 0.8;
+}
+.footer ul li svg{
+    margin-right: 12px;
+}

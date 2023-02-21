@@ -1,7 +1,7 @@
 /* GENERAL CODES */
 
 :root {
-  --maincolor: linear-gradient(98.41deg, #E8C488 0%, #8D6736 100%)
+  --main: linear-gradient(98.41deg, #E8C488 0%, #8D6736 100%)
 }
 
 .text-center{
@@ -24,3 +24,33 @@
   display: none;
 }
 
+.align-center{
+  align-items: center;
+}
+
+.align-start{
+  align-items: flex-start;
+}
+.align-end{
+  align-items: flex-end;
+}
+
+.justify-between{
+  justify-content: space-between;
+}
+.justify-start{
+  justify-content: flex-start;
+}
+.justify-end{
+  justify-content: flex-end;
+}
+.justify-center{
+  justify-content: center;
+}
+
+.pointer{
+  cursor: pointer;
+}
+.Mui-focused{
+  border: none !important;
+}

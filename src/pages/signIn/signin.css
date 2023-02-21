@@ -1,0 +1,105 @@
+
+.signin .inputbox {
+    margin: 0 0 20px 0 !important;
+}
+
+.signin .input.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border: 2px solid #3D86F7 !important;
+}
+
+.signin .MuiInputBase-root fieldset {
+    border: 2.5px solid #D5D8DD !important;
+    border-radius: 5px;
+}
+
+.signin .wrapper {
+    margin: auto;
+}
+
+.signin .navbarAuth {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0 100px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.signin .navigator {
+    font-weight: 500;
+    font-size: 16px;
+    color: #AAAAAA;
+}
+
+.signin .navigator a {
+    color: #3D86F7;
+    text-decoration: underline;
+}
+
+.signin .heading {
+    font-weight: 700;
+    font-size: 36px;
+    color: #303030;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signin .description {
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color: #AAAAAA;
+    margin-bottom: 40px;
+    width: 55%;
+    margin: 0 auto 40px ;
+}
+.signin .checkboxWrapper p{
+    font-size: 14px;
+    color: #303030;
+
+} 
+.signin .checkboxWrapper p a{
+    color: #3D86F7;
+} 
+.signin .submitBtn{
+    background-color: #3D86F7;
+    padding: 18px 0;
+    color: white;
+    font-size: 16px;
+    text-transform: unset;
+    margin: 20px 0 40px;
+}
+.signin .submitBtn:hover{
+    background-color: #3D86F7;
+}
+.avs .img1{
+    position: absolute;
+    top: 20%;
+    left: 250px;
+}
+.avs .img2{
+    position: absolute;
+    top: 45%;
+    left: 120px;
+}
+.avs .img3{
+    position: absolute;
+    top: 60%;
+    left: 320px;
+}
+.avs .img4{
+    position: absolute;
+    top: 20%;
+    right: 110px;
+}
+.avs .img5{
+    position: absolute;
+    top: 34%;
+    right: 320px;
+}
+.avs .img6{
+    position: absolute;
+    top: 70%;
+    right: 200px;
+}

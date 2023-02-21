@@ -1,0 +1,408 @@
+.main {
+    padding: 0 100px;
+}
+
+/* FACTS */
+
+.facts {
+    padding: 0 180px;
+}
+
+.facts ul {
+    background-color: white;
+    padding: 30px 90px;
+    margin-top: -5%;
+    border-radius: 5px;
+}
+
+.facts ul li h3 {
+    color: var(--main) !important;
+    background: -webkit-linear-gradient(#E8C488, #8D6736);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.facts ul li p {
+    font-weight: 600;
+    font-size: 16px;
+    color: #303030;
+}
+
+/* FACTS END */
+
+/* ABOUT START */
+
+.about {
+    margin: 0 0 60px;
+    padding-top: 100px;
+}
+
+.about img {
+    height: 100%;
+}
+
+.about .leftImg,
+.about .right {
+    width: 48%;
+}
+
+.about .right {
+    padding-left: 40px;
+}
+
+.about .right .top {
+    font-weight: 400;
+    font-size: 16px;
+    color: #888888;
+    margin-bottom: 10px;
+}
+
+.about .right .heading {
+    font-weight: 800;
+    font-size: 38px;
+    color: #303030;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.about .right .content {
+    font-weight: 400;
+    font-size: 18px;
+    color: #888888;
+}
+
+/* ABOUT END */
+
+
+
+/* AD START */
+
+.ad {
+    height: 449px;
+    background: url("../../assets/images/adImage.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white !important;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.ad .shadow {
+    width: 100%;
+    height: 100%;
+    background: url("../../assets/images/adShadow.png");
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 50px 0;
+}
+
+.ad .wrapper {
+    width: 60%;
+    height: auto;
+    /* margin: auto; */
+    text-align: center;
+}
+
+.ad .top {
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.ad .heading {
+    color: white;
+    font-weight: 800;
+    font-size: 38px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.ad .content {
+    color: white;
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* AD END */
+
+/* FUNCTIONS START */
+
+.functions {
+    padding-top: 100px;
+}
+
+.functions .functions-heading {
+    width: 60%;
+    margin: 0 auto 50px;
+}
+
+.functions .top {
+    font-weight: 400;
+    font-size: 16px;
+    color: #888888;
+    margin-bottom: 10px;
+}
+
+.functions .heading {
+    font-weight: 800;
+    font-size: 38px;
+    color: #303030;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.functions .content {
+    font-weight: 400;
+    font-size: 18px;
+    color: #888888;
+    margin-bottom: 20px;
+}
+
+.functions .card {
+    padding: 25px;
+    width: 33%;
+    height: 100% !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.functions .card .icon-box {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+}
+
+.functions .card h5 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #303030;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.functions .card p {
+    font-weight: 400;
+    font-size: 16px;
+    color: #888888;
+}
+
+/* FUNCTIONS END */
+
+
+/* HOWITWORKS START */
+
+.howItWorks {
+    padding:100px 100px;
+    background-color: #303030;
+    color: white;
+}
+
+.howItWorks .functions-heading {
+    width: 60%;
+    margin: auto;
+}
+
+.howItWorks .top {
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.howItWorks .heading {
+    font-weight: 800;
+    font-size: 38px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.howItWorks .content {
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #888888;
+
+}
+
+.howItWorks .hiwContent {
+    margin-top: 50px;
+}
+
+.howItWorks .hiwCard {
+    width: 33%;
+    padding: 0 30px;
+}
+
+.howItWorks .hiwCard .iconbox {
+    width: 200px;
+    height: 200px;
+    background-color: #6A6A6A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: auto;
+    margin-bottom: 18px;
+}
+
+.howItWorks .hiwCard .iconbox .index {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 12px;
+    right: 12px;
+    background: var(--main);
+    font-size: 20px;
+}
+
+.howItWorks .hiwCard .step {
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.howItWorks .hiwCard .duration {
+    font-size: 16px;
+    color: #888888;
+
+}
+
+.howItWorks .buttons {
+    margin-top: 60px;
+}
+
+.howItWorks .buttons button {
+    padding: 14px 32px;
+    font-size: 16px;
+    text-transform: unset;
+    border-radius: 5px;
+}
+
+.howItWorks .buttons button:first-child {
+    margin-right: 20px;
+}
+
+.howItWorks .buttons .start {
+    background-color: white;
+    color: #303030;
+}
+
+.howItWorks .buttons .premium {
+    background: var(--main);
+    color: white;
+}
+
+/* HOWITWORKS END */
+
+
+/* TESTIMONIALS START */
+.testimonials {
+    display: flex;
+    margin-top: 100px;
+}
+
+.testimonials .testimonials-card {
+    width: 25%;
+    padding: 15px;
+    height: 624px;
+    /* background: url("../../assets/images/13\ Pro\ -\ 1.png"); */
+}
+
+.testimonials .testimonials-card:first-child {
+    padding-left: 0;
+}
+
+.testimonials .testimonials-card:last-child {
+    padding-right: 0;
+}
+
+.testimonials .testimonials-card img {
+    width: 100%;
+    height: 100%;
+    /* filter: grayscale(70%); */
+}
+
+.testimonials .testimonials-card.up {
+    margin-top: -40px;
+}
+
+.testimonials .testimonials-card.down {
+    margin-bottom: -40px;
+}
+
+/* TESTIMONIALS END */
+
+
+/* FAQ START */
+
+.faq {
+    margin: 104px 0;
+}
+
+.faq h4 {
+    font-weight: 700;
+    font-size: 36px;
+    color: #282725;
+    margin-bottom: 40px;
+}
+
+.faq .accordionSummary {
+    font-weight: 500;
+    font-size: 24px;
+    color: #282725;
+    margin-left: 50px;
+}
+
+.faq .faqPlus {
+    position: relative;
+    width: 28px;
+    /* margin-right: 70px; */
+}
+
+.faq .faqPlus .horizontal,
+.faq .faqPlus .vertical {
+    position: absolute;
+    height: 3px;
+    width: 27px;
+    background: var(--main);
+    top: 50%;
+    left: 50%;
+    translate: -50%;
+    border-radius: 10px;
+}
+
+.faq .faqPlus .vertical {
+    rotate: 90deg;
+    transition: all 0.1s linear;
+}
+
+.faq .accordionDescription {
+    padding-left: 160px !important;
+    padding-bottom: 35px !important;
+    padding-top: 0 !important;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #B9C1BF;
+}
+
+/* FAQ END */

@@ -1,0 +1,97 @@
+.navbarMain {
+    padding: 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    background-color: #111;
+    color: white;
+    position: sticky;
+    top: 0;
+    transition: all 0.2s linear;
+    z-index: 99;
+}
+.navbarMain:hover{
+    top: 0;
+}
+
+.top-0{
+    top: 0;
+}
+.-top-24{
+    top: -60px;
+    border-bottom: 2px solid var(--main);
+}
+
+.navlist li {
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.navlist li p {
+    transition: all 0.1s linear;
+    font-weight: 600;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.navlist li p:hover {
+    opacity: 0.7;
+    font-size: 16px;
+}
+
+ .premium-btn {
+    background: var(--main);
+    color: white !important;
+    padding: 8px 20px !important;
+    transition: all 0.2s linear !important;
+}
+
+ .premium-btn:hover {
+    scale: 1.05;
+}
+
+.langSelect {
+    color: white !important;
+    border: none;
+}
+
+.langSelect {
+    outline: none !important;
+}
+
+.langSelect legend {
+    display: none !important;
+}
+
+.profile-box {
+    background-color: white !important;
+    padding: 8px 16px !important;
+    border-radius: 5px !important;
+    transition: all 0.2s linear  !important;
+}
+
+.profile-box p {
+    color: black !important;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #303030;
+}
+.profile-box:hover{
+    scale: 1.1;
+}
+.MuiSelect-select.MuiSelect-standard.MuiInputBase-input{
+    display: flex;
+    align-items: center;
+    height: auto !important;
+    padding: 10px 24px 10px 4px !important;
+    outline: none  !important;
+    border: none !important;
+}
+.MuiSelect-select.MuiSelect-standard.MuiInputBase-input svg{
+    margin-right: 5px;
+}
+.MuiInputBase-root.MuiInput-root.MuiInput-underline.MuiInputBase-colorPrimary.Mui-focused::before{
+    border-bottom: none !important;
+}

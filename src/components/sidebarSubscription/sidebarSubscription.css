@@ -1,0 +1,81 @@
+.sidebarSubscription {
+    height: 100vh;
+}
+
+.navbar_subscribe {
+    padding: 35px 0px 35px 100px;
+    background-color: black;
+    color: white;
+}
+
+.navbar_subscribe svg rect {
+    width: 133px !important;
+    height: 40px;
+}
+
+.navbar_subscribe .profileImg {
+    width: 60px;
+    height: 60px;
+    margin: 0 15px 0 30px;
+}
+
+.navbar_subscribe p {
+    max-width: 122px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.sub_content {
+    height: 100%;
+    background-image: url("../../assets/images/sidebarbg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.sub_content .shadowBox {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.containerSub {
+    width: 100%;
+    padding: 25px 50px 0 100px;
+}
+
+.containerSub .item {
+    background-color: white;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    padding: 25px;
+    cursor: pointer;
+}
+
+.containerSub .item button {
+    margin: 0 0 0 30px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #FFFFFF;
+    text-transform: unset;
+    letter-spacing: 1px;
+}
+
+.containerSub .pro {
+    background: linear-gradient(98.41deg, #E8C488 0%, #8D6736 100%);
+}
+
+.containerSub .simple {
+    background: linear-gradient(276.07deg, #303030 0%, rgba(48, 48, 48, 0.4) 100%);
+}
+
+.containerSub p {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: #303030;
+    opacity: 0.7;
+    margin-top: 20px;
+}

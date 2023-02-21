@@ -1,0 +1,156 @@
+.subscriptionPrem .wrapper {
+    padding: 25px 0 0 30px;
+}
+
+.subscriptionPrem .heading {
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.subscriptionPrem .heading img {
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.subscriptionPrem .heading.premium div {
+    padding: 8px 16px;
+    background: linear-gradient(98.41deg, #E8C488 0%, #8D6736 100%);
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+
+.subscriptionPrem .heading.premium {
+    background: linear-gradient(98.41deg, rgba(248, 226, 190, 0.6) 0%, #8D6736 100%);
+    border-radius: 10px;
+}
+
+.subscriptionPrem .heading.simple {
+    background: linear-gradient(276.07deg, #303030 0%, rgba(48, 48, 48, 0.25) 100%);
+    border-radius: 10px;
+}
+
+.subscriptionPrem .personalInfos {
+    border: 1px solid #D5D8DD;
+    border-radius: 5px;
+    padding: 25px;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.subscriptionPrem .personalInfos .heading_personal {
+    padding: 5px 20px;
+    background: #D5D8DD;
+    border-radius: 40px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #303030;
+    position: absolute;
+    z-index: 1;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.subscriptionPrem .personalInfos li {
+    margin: 12.5px 0;
+}
+
+.subscriptionPrem .personalInfos li p {
+    font-weight: 600;
+    font-size: 16px;
+    color: #303030;
+}
+
+.subscriptionPrem .personalInfos li p span {
+    font-weight: 400;
+    font-size: 14px;
+    color: #303030;
+    opacity: 0.7;
+}
+
+.subscriptionPrem .personalInfos li svg {
+    margin-right: 20px;
+}
+
+.subscriptionPrem .right {
+    padding: 0 100px 0 30px;
+    text-align: center;
+}
+
+.subscriptionPrem .right .heading {
+    font-weight: 600;
+    font-size: 32px;
+    text-align: center;
+    color: #000000;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.subscriptionPrem .right .sub {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #303030;
+    opacity: 0.7;
+    margin-bottom: 60px;
+}
+
+.subscriptionPrem .right .priceBox {
+    border-radius: 5px;
+    padding: 16px 14px;
+    margin-bottom: 55px;
+}
+
+.subscriptionPrem .right .priceBox.prem {
+    background: #FDF2C5;
+}
+
+.subscriptionPrem .right .priceBox.simple {
+    background: #BEBEBE;
+}
+
+.subscriptionPrem .right .priceBox h3 {
+    font-weight: 600;
+    font-size: 24px;
+    color: #303030;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subscriptionPrem .right .priceBox p {
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #303030;
+    opacity: 0.7;
+}
+
+.subscriptionPrem .right button {
+    padding: 16px 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: #FFFFFF;
+    border-radius: 45px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.subscriptionPrem .right button.cancel {
+    color: #303030;
+}
+
+.subscriptionPrem .right button.prem {
+    background: linear-gradient(98.41deg, #E8C488 0%, #8D6736 100%);
+}
+
+.subscriptionPrem .right button.simple {
+    background: linear-gradient(276.07deg, #303030 0%, rgba(48, 48, 48, 0.4) 100%);
+}
