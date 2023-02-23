@@ -5,6 +5,8 @@ import { Button, Grid, Typography } from '@mui/material'
 import Car from '../../assets/images/car'
 import AccordionProfile from '../../components/accordionProfile/accordionProfile'
 import NavbarMain from '../../components/navbarMain/navbarMain'
+import Carousel from '../../components/carousel/carousel'
+import ProfileForm from '../../components/profileForm/profileForm'
 
 export default function MyProfile() {
     return (
@@ -13,7 +15,6 @@ export default function MyProfile() {
             <Grid container className='myProfile'>
                 <Grid className="wrapper" item xs={12}>
                     <div className='wrapper-child'>
-
                         <div className="sectionBg"></div>
                         <div className='bg-black'>
                             <div className="imgBox">
@@ -21,6 +22,9 @@ export default function MyProfile() {
                             </div>
                             <Typography variant='h3' className='name'>Самадович Акмал Турсунов</Typography>
                             <Typography variant='h5' className='profession'>Бизнес аналитик</Typography>
+
+
+                            {/* MEDIA PART */}
                             <ul className='media d-flex justify-between align-center'>
                                 <li>
                                     <div className="circle">
@@ -59,18 +63,26 @@ export default function MyProfile() {
                                     <Typography>Lokatsiya</Typography>
                                 </li>
                             </ul>
-                            <Button>
+                            <Button className='saveProfile'>
                                 Сохранить профиль
                             </Button>
-                            <Typography variant="h5">
+                            <Typography className='aboutMe' variant="h5">
                                 Коротко обо мне
                             </Typography>
-                            <Typography>
+                            <Typography className='description'>
                                 Джеймс - опытный менеджер по работе с клиентами с четырехлетним опытом предоставления решений разнообразной клиентской базе. Получив степень в области делового администрирования с акцентом на менеджмент, Джеймс может создавать эффективные стратегии для управления и повышения эффективности работы с клиентами. Его ценный опыт, позитивная личность и творческая проницательность сделали его незаменимым членом команды обслуживания клиентов Tennent Industries.
                             </Typography>
 
+                            {/* CONTACTS AND SERVICES */}
                             <AccordionProfile />
                         </div>
+
+
+                        {/* MY CASES */}
+                        <Carousel />
+
+                        {/* FORM */}
+                        <ProfileForm />
                     </div>
                 </Grid>
 

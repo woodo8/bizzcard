@@ -1,0 +1,80 @@
+.profileForm {
+    width: 100%;
+    padding: 50px 106px 40px;
+    background: #AAAAAA;
+}
+
+.profileForm .heading {
+    font-weight: 700;
+    font-size: 32px;
+    text-align: center;
+    color: #303030;
+    margin: 0 auto 30px;
+    width: 80%;
+}
+
+.profileForm .iconBocx {
+    background: var(--main);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+.profileForm .iconBocx svg {
+    color: white;
+}
+
+.profileForm form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.profileForm form h5 {
+    font-weight: 600;
+    font-size: 32px;
+    color: #303030;
+    margin-bottom: 40px;
+}
+
+.profileForm .messageBox {
+    width: 100%;
+    min-height: 200px;
+    max-height: 300px;
+    min-width: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+    padding: 14px;
+    border-color: #8D6736;
+}
+
+.profileForm .messageBox:focus {
+    border-color: #a97b3e;
+
+}
+
+.profileForm .messageBox::placeholder {
+    font-size: 16px;
+
+    color: #303030;
+}
+
+.profileForm .submitBtn {
+    height: 56px;
+    background-color: black;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+    text-transform: unset;
+}
+
+.profileForm .submitBtn:hover {
+    background: var(--main);
+}

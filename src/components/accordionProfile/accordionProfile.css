@@ -1,0 +1,30 @@
+.accordionProfile {
+    width: 454px;
+    margin: auto;
+}
+
+.accordionProfile .services li {
+    list-style: disc outside none;
+    display: list-item;
+    margin-left: 1em;
+}
+
+.accordionProfile .name {
+    font-weight: 500;
+    font-size: 28px;
+    color: #303030;
+}
+
+.accordionProfile .tagName {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 150%;
+    color: #303030;
+}
+.accordionProfile .content {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 150%;
+    color: #303030;
+    margin-bottom: 10px;
+}

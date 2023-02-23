@@ -106,14 +106,14 @@
     margin-bottom: 50px;
 }
 
-.myProfile ul li {
+.myProfile .media li {
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.myProfile ul li .circle {
+.myProfile .media li .circle {
     border: 2px solid transparent;
     background: linear-gradient(45deg, #E8C488, #8D6736) border-box;
     /* mask-composite: exclude; */
@@ -123,7 +123,7 @@
     position: relative;
 }
 
-.myProfile ul li .circle::after {
+.myProfile .media li .circle::after {
     position: absolute;
     width: 50px;
     height: 50px;
@@ -136,11 +136,45 @@
     background-color: #383838;
 }
 
-.myProfile ul li .circle svg {
+.myProfile .media li .circle svg {
     position: absolute;
     display: block;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
+}
+
+.myProfile .media p {
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 10px;
+}
+
+.myProfile .saveProfile {
+    padding: 10px 20px;
+    background: var(--main);
+    font-weight: 700;
+    font-size: 30px;
+    color: #FFFFFF;
+    text-transform: unset;
+    border-radius: 10px;
+    margin: 40px 0 60px;
+}
+
+.myProfile .aboutMe {
+    font-weight: 700;
+    font-size: 30px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.myProfile .description {
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 50px;
 }
