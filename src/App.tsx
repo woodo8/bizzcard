@@ -9,6 +9,7 @@ import RPassword from './pages/recreatePassword/rPassword';
 import SubscriptionPrem from './pages/subscriptionPremium/subscriptionPrem';
 import SubscriptionFree from './pages/subscriptionFree/subscriptionFree';
 import MyProfile from './pages/myProfile/myProfile';
+import EditProfile from './pages/editProfile/editProfile';
 function App() {
   const [first, setfirst] = useState("hello")
   return (
@@ -36,6 +37,9 @@ function App() {
           <Route
             path="/profile"
             element={<MyProfile/>} />
+          <Route
+            path="/edit_profile"
+            element={<EditProfile/>} />
         </Routes>
       </div>
     </BrowserRouter>

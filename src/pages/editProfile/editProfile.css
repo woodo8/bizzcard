@@ -1,0 +1,7 @@
+.editProfile{
+    background-color: #111111;
+    color: white;
+}
+.editProfile .MuiTabs-root {
+    display: flex;
+}
