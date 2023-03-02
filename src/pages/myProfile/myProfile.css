@@ -17,10 +17,11 @@
 }
 
 .myProfile .wrapper {
-    padding: 50px 100px;
+    padding: 0px 100px;
 }
 
 .myProfile .wrapper-child {
+    margin-top: 30px;
     width: 100%;
     overflow-x: hidden;
 }
@@ -77,17 +78,6 @@
     left: 50%;
     transform: translateX(-50%);
     top: -130px !important;
-}
-
-.media {
-    /* border-radius: 50%;
-    border: 10px solid transparent;
-    background: linear-gradient(45deg, red, blue) border-box;
-    -webkit-mask:
-        linear-gradient(#fff 0 0) padding-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude; */
 }
 
 .myProfile .name {
@@ -177,4 +167,66 @@
     text-align: center;
     color: #FFFFFF;
     margin-bottom: 50px;
+}
+
+.myProfile .share {
+    width: 50%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.myProfile .share h6 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.myProfile .share .item {
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.myProfile .share .item .iconBox {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-color: rebeccapurple;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.myProfile .share .item .iconBox svg {
+    width: 28px;
+    height: 28px;
+    color: white;
+}
+
+.myProfile .share .item .iconBox.orange {
+    background-color: #BB792B;
+}
+
+.myProfile .share .item .iconBox.blue {
+    background-color: #344677;
+}
+
+.myProfile .share .item .iconBox.lightBlue {
+    background-color: #5FB4ED;
+}
+
+.myProfile .share .item .iconBox.red {
+    background-color: #992C1D;
+}
+
+.myProfile .share .item .iconBox+p {
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    color: #303030;
 }

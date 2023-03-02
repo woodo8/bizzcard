@@ -11,14 +11,24 @@
     transition: all 0.2s linear;
     z-index: 99;
 }
-.navbarMain:hover{
+.navbarMain .menuIcon{
+    display: none;
+}
+.navbarMain .logo {
+    width: 133px;
+    min-width: 133px;
+    height: 40px;
+}
+
+.navbarMain:hover {
     top: 0;
 }
 
-.top-0{
+.top-0 {
     top: 0;
 }
-.-top-24{
+
+.-top-24 {
     top: -60px;
     border-bottom: 2px solid var(--main);
 }
@@ -40,14 +50,14 @@
     font-size: 16px;
 }
 
- .premium-btn {
+.premium-btn {
     background: var(--main);
     color: white !important;
     padding: 8px 20px !important;
     transition: all 0.2s linear !important;
 }
 
- .premium-btn:hover {
+.premium-btn:hover {
     scale: 1.05;
 }
 
@@ -68,7 +78,7 @@
     background-color: white !important;
     padding: 8px 16px !important;
     border-radius: 5px !important;
-    transition: all 0.2s linear  !important;
+    transition: all 0.2s linear !important;
 }
 
 .profile-box p {
@@ -78,20 +88,108 @@
     font-size: 16px;
     color: #303030;
 }
-.profile-box:hover{
+
+.profile-box:hover {
     scale: 1.1;
 }
-.MuiSelect-select.MuiSelect-standard.MuiInputBase-input{
+
+.MuiSelect-select.MuiSelect-standard.MuiInputBase-input {
     display: flex;
     align-items: center;
     height: auto !important;
     padding: 10px 24px 10px 4px !important;
-    outline: none  !important;
+    outline: none !important;
     border: none !important;
 }
-.MuiSelect-select.MuiSelect-standard.MuiInputBase-input svg{
+
+.MuiSelect-select.MuiSelect-standard.MuiInputBase-input svg {
     margin-right: 5px;
 }
-.MuiInputBase-root.MuiInput-root.MuiInput-underline.MuiInputBase-colorPrimary.Mui-focused::before{
+
+.MuiInputBase-root.MuiInput-root.MuiInput-underline.MuiInputBase-colorPrimary.Mui-focused::before {
     border-bottom: none !important;
+}
+
+@media screen and (max-width:1300px) {
+    .navbarMain {
+        padding: 0 50px;
+    }
+
+    .navbarMain .logo {
+        width: 100px;
+        min-width: 100px;
+    }
+    .navlist li {
+        margin: 0 10px;
+    }
+    .navlist li p {
+        font-size: 14px;
+        ;
+    }
+
+    .navbarMain .profile-box {
+        padding: 8px 12px !important;
+    }
+
+    .navbarMain .profile-box p {
+        font-size: 14px;
+    }
+    .navbarMain .premium-btn {
+      
+        padding: 8px 16px !important;
+    }
+}
+@media screen and (max-width:996px) {
+    .navbarMain {
+        padding: 0 30px;
+    }
+
+    .navbarMain .logo {
+        width: 80px;
+        min-width: 80px;
+    }
+    .navlist li {
+        margin: 0 8px;
+    }
+    .navlist li p {
+        font-size: 12px;
+    }
+    .navbarMain .profile-box {
+        padding: 8px 10px !important;
+    }
+
+    .navbarMain .profile-box p {
+        font-size: 12px;
+    }
+    .navbarMain .premium-btn {
+      
+        padding: 8px 14px !important;
+    }
+}
+@media screen and (max-width:769px) {
+    .navbarMain {
+        padding: 0 20px;
+    }
+
+    .navbarMain .logo {
+        width: 133px;
+        min-width: 133px;
+    }
+    .navbarMain .menuIcon{
+        display: block;
+    }
+    .navbarMain .navlist  {
+        display: none;
+    }
+
+    .navbarMain .profile-box {
+        padding: 8px 10px !important;
+    }
+
+    .navbarMain .profile-box p {
+        display: none;
+    }
+    .navbarMain .premium-btn {
+    display: none;        
+    }
 }

@@ -36,3 +36,36 @@
     padding: 12px 26px !important;
     margin-top: 10px !important;
 }
+
+@media screen and (max-width:1300px) {
+    .hero {
+        padding: 140px 50px;
+    }
+}
+
+
+@media screen and (max-width:769px) {
+    .heroWrapper {
+        height: 90vh;
+    }
+
+    .hero {
+        padding: 20px 30px !important;
+        justify-content: start;
+    }
+
+    .headerHero {
+        font-size: 24px !important;
+        width: 100%;
+        margin-bottom: 180px !important;
+    }
+    .typographyhero {
+        font-size: 16px !important;
+        margin: 30px 0 !important;
+    }
+    .buttonHero {
+        font-size: 14px;
+        padding: 8px 18px !important;
+    }
+
+}

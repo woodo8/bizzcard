@@ -30,7 +30,7 @@ export default function Homepage() {
   return (
     <div className='homepage'>
       <NavbarMain />
-      <Hero  />
+      <Hero />
 
       {/* FACTS SECTION START */}
       <section className='facts'>
@@ -66,9 +66,8 @@ export default function Homepage() {
       {/* FACTS SECTION END */}
 
       <div className="main">
-
         {/* ABOUT SECTION START */}
-        <section id='about' className='about d-flex align-center justify-between'>
+        <section id='about' className='about d-flex align-start justify-between'>
 
           <img src={AboutImg} alt="About img" className="leftImg" />
           <div className="right">
@@ -208,7 +207,7 @@ export default function Homepage() {
         </section>
         {/* FAQ END */}
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

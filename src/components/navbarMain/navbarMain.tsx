@@ -9,7 +9,9 @@ import FormControl from '@mui/material/FormControl';
 import ProfileImg from '../../assets/images/profileImg.js';
 import RussiaFlag from '../../assets/images/russiaFlag.js';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import NavbarMobileMain from '../navbarMobileMain/navbarMobileMain';
 
 function useScrollDirection() {
     const [scrollDirection, setScrollDirection] = useState<null | string>(null);
@@ -37,40 +39,67 @@ function useScrollDirection() {
 
 export default function NavbarMain() {
 
-    const [lang, setLang] = React.useState('ru');
+    const [lang, setLang] = useState<string>('ru');
+    const [menuActive, setMenuActive] = useState<boolean>(false)
+
 
     const handleChange = (event: SelectChangeEvent) => {
         setLang(event.target.value as string);
     };
+    let location = useLocation();
 
     const scrollDirection = useScrollDirection();
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     return (
         <div className={`navbarMain ${scrollDirection === "down" ? "-top-24" : "top-0"}`}>
+            <MenuOutlinedIcon onClick={() => setMenuActive(true)} className='menuIcon' />
             <Logo />
+            <NavbarMobileMain className={menuActive ? "active" : "disab"} setMenuActive={setMenuActive} lang={lang} handleChange={handleChange} />
             <ul className="navlist d-flex align-center">
+                <li >
+                    {
+                        location.pathname != "/" ?
+                            <Typography onClick={() => navigate("/")}>
+                                Кто мы
+                            </Typography>
+                            :
+                            <AnchorLink href="#about">
+                                <Typography>
+                                    Кто мы
+                                </Typography>
+                            </AnchorLink>
+                    }
+                </li>
+
                 <li>
-                    <AnchorLink href="#about">
-                        <Typography>
-                            Кто мы
-                        </Typography>
-                    </AnchorLink>
+                    {
+                        location.pathname != "/" ?
+                            <Typography onClick={() => navigate("/")}>
+                                Функции
+                            </Typography>
+                            :
+                            <AnchorLink href="#functions">
+                                <Typography>
+                                    Функции
+                                </Typography>
+                            </AnchorLink>
+                    }
                 </li>
                 <li>
-                    <AnchorLink href="#functions">
-                        <Typography>
-                            Функции
-                        </Typography>
-                    </AnchorLink>
-                </li>
-                <li>
-                    <AnchorLink href="#howItWorks">
-                        <Typography>
-                            Как это работает
-                        </Typography>
-                    </AnchorLink>
+                    {
+                        location.pathname != "/" ?
+                            <Typography onClick={() => navigate("/")}>
+                                Как это работает
+                            </Typography>
+                            :
+                            <AnchorLink href="#howItWorks">
+                                <Typography>
+                                    Как это работает
+                                </Typography>
+                            </AnchorLink>
+                    }
                 </li>
                 <li>
                     <Button onClick={() => navigate("/subscribe_premium")} className="premium-btn">

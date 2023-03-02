@@ -1,7 +1,158 @@
-.editProfile{
+.editProfile {
     background-color: #111111;
     color: white;
 }
+
 .editProfile .MuiTabs-root {
     display: flex;
+}
+
+.contactInfo .MuiTabs-root {
+    display: block;
+}
+
+.contactInfo {
+    width: 100%;
+}
+
+.contactInfo .input {
+    color: white;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.contactInfo .input input {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+
+
+    padding-left: 0;
+    width: 300px;
+}
+
+.contactInfo .input::placeholder {
+    color: white;
+}
+
+.contactInfo .MuiFilledInput-root::before {
+    border-bottom: 2px solid white !important;
+}
+
+.contactInfo .MuiFormLabel-root.MuiInputLabel-root {
+    color: white;
+    transform: translate(0px, 16px) scale(1);
+}
+
+.contactInfo .MuiFormLabel-root.MuiInputLabel-root.Mui-focused {
+    font-weight: 500;
+    font-size: 14px;
+    color: #AAAAAA;
+    transform: translate(0px, 0px) scale(1);
+}
+
+.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-filled.MuiFormLabel-colorPrimary.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-filled {
+    font-weight: 500;
+    font-size: 14px;
+    color: #AAAAAA;
+    transform: translate(0px, 0px) scale(1);
+}
+
+.editProfile .submitBtn {
+    background: linear-gradient(98.41deg, #E8C488 0%, #8D6736 100%);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    text-transform: unset;
+}
+
+.editProfile .card {
+    max-width: 100%;
+    overflow-x: hidden;
+    color: #111;
+}
+
+.editProfile .card-body {
+    background-color: white;
+    color: #111;
+    padding: 0 12px;
+    max-width: 100%;
+    width: 100%;
+    min-height: 500px;
+    overflow-x: hidden;
+    margin-bottom: 30px;
+}
+
+.editProfile .panelHeading {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+    border-bottom: 2px solid white;
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+.editProfile .bgImageBox{
+    margin-bottom: 30px;
+}
+.editProfile .bgImageBox input {
+    visibility: hidden;
+}
+
+.editProfile .bgImageBox label {
+    cursor: pointer;
+    border: 1px solid white;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editProfile .uploadIcon {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+.editProfile .image {
+    width: 60px;
+    height: 40px;
+    background-color: #D9D9D9;
+    display: block;
+    margin-right: 15px;
+}
+.editProfile .img {
+    width: 228px;
+    height: 148px;
+    background-color: #D9D9D9;
+    display: block;
+    margin-right: 15px;
+}
+
+.editProfile .bgImageBox h6 {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #AAAAAA;
+    margin-bottom: 10px;
+}
+
+.editProfile .bgImageBox h5 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #AAAAAA;
+}
+
+.editProfile .bgImageBox h2 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
 }

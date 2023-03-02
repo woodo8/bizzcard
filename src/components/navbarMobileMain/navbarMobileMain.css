@@ -1,0 +1,64 @@
+.navbarMobileMain {
+    width: 100%;
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 9;
+    padding: 24px;
+    transition: all 0.2s linear;
+}
+.navbarMobileMain.active{
+    left: 0;
+}
+.navbarMobileMain.disab{
+    left: -150%;
+}
+.navbarMobileMain .navHeading {
+    font-weight: 600;
+    font-size: 30px;
+    color: #1C1C1C;
+}
+
+.navbarMobileMain .exitIcon {
+    width: 35px;
+    height: 35px;
+    color: black;
+}
+
+.navbarMobileMain .navlistMobile {
+    margin-top: 45px;
+}
+
+.navbarMobileMain .navlistMobile li {
+    margin: 30px 0;
+    cursor: pointer;
+}
+
+.navbarMobileMain .navlistMobile li p {
+    transition: all 0.1s linear;
+    font-weight: 600;
+    font-size: 16px;
+    color: #1c1c1c;
+}
+
+.navbarMobileMain .premium-btnMobile {
+    background: var(--main);
+    color: white !important;
+    padding: 8px 20px !important;
+    transition: all 0.2s linear !important;
+}
+.langSelectMobile {
+    color: #1C1C1C !important;
+    border: 2px solid #1C1C1C;
+}
+
+
+@media screen and (max-width:769px) {
+    .navbarMobileMain {
+        display: block;
+    }
+}

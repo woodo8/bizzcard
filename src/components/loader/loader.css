@@ -1,0 +1,20 @@
+.loader {
+    background-color: #F8E2BE;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s linear;
+    top: 0;
+}
+.loader.active{
+    top: 0;
+}
+.loader.disap{
+    top: -150%;
+    visibility: hidden;
+}

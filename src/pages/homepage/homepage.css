@@ -13,6 +13,7 @@
     padding: 30px 90px;
     margin-top: -5%;
     border-radius: 5px;
+    box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.1);
 }
 
 .facts ul li h3 {
@@ -205,7 +206,7 @@
 /* HOWITWORKS START */
 
 .howItWorks {
-    padding:100px 100px;
+    padding: 100px 100px;
     background-color: #303030;
     color: white;
 }
@@ -406,3 +407,199 @@
 }
 
 /* FAQ END */
+
+
+@media screen and (max-width:1300px) {
+    .main {
+        padding: 0 50px;
+    }
+
+    .facts {
+        padding: 0 100px;
+    }
+
+    .facts ul {
+        padding: 30px 20px;
+    }
+
+}
+
+@media screen and (max-width:996px) {
+    .main {
+        padding: 0 30px;
+    }
+
+    .facts {
+        padding: 0 60px;
+    }
+
+    .about {
+        display: block;
+    }
+
+    .about img {
+        height: 100%;
+        margin-bottom: 20px;
+    }
+
+    .about .leftImg,
+    .about .right {
+        width: 100%;
+    }
+
+    .about .right {
+        padding-left: 0px;
+    }
+
+    .functions .cards{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .functions .cards .card{
+        width: 50%;
+    }
+    .howItWorks {
+        padding: 100px 70px;
+        background-color: #303030;
+        color: white;
+    }
+    
+    .howItWorks .functions-heading {
+        width: 80%;
+    }
+    
+    .howItWorks .top {
+        font-weight: 400;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .howItWorks .heading {
+        font-weight: 800;
+        font-size: 38px;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+    }  
+    
+    .howItWorks .hiwCard .iconbox {
+        width: 115px;
+        height: 115px;
+    }
+    
+    .howItWorks .hiwCard .iconbox .index {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+    }
+    
+    .howItWorks .hiwCard .step {
+        font-size: 12px;
+    }
+    
+    .howItWorks .hiwCard .duration {
+        font-size: 10px;
+    }
+    
+
+}
+
+@media screen and (max-width:769px) {
+    .main {
+        padding: 0 20px;
+    }
+
+    .facts ul {
+        display: block !important;
+        margin-top: -10%;
+    }
+
+    .facts ul li {
+        margin-bottom: 20px;
+    }
+
+  
+    .ad .wrapper {
+        width: 80%;
+        
+    }
+    
+    .ad .top {
+        font-size: 14px;
+    }
+
+    .ad .heading {
+        font-size: 32px;
+    }
+
+    .ad .content {
+        font-size: 14px;
+    }
+
+    
+    .functions .cards{
+       display: block;
+    }
+    .functions .cards .card{
+        width: 100%;
+        padding: 0;
+        margin-bottom: 80px;
+    }
+    .functions .functions-heading {
+        width: 100%;
+        margin: 0 auto 50px;
+        font-size: 32px !important;
+    }
+    .howItWorks {
+        padding: 100px 20px;
+        
+    }
+    .howItWorks .hiwContent {
+        flex-wrap: wrap;
+        margin: auto;
+    }
+    .howItWorks .hiwContent .hiwCard{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .howItWorks .functions-heading {
+        width: 100%;
+    }
+    .howItWorks .buttons{
+        display: block;
+    }
+    .howItWorks .buttons button{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .testimonials{
+        display: block;
+    }
+    .testimonials .testimonials-card {
+        width: 100%;
+        padding: 0px;
+        height: 624px;
+        margin-bottom: 20px;
+        /* background: url("../../assets/images/13\ Pro\ -\ 1.png"); */
+    }
+    .testimonials .testimonials-card.up {
+        margin-top: 0px;
+    }
+    
+    .testimonials .testimonials-card.down {
+        margin-bottom: 0px;
+    }
+}
+
+/* 
+@media screen and (max-width:1300px) {
+    .main {
+        padding: 0 50px;
+    }
+    .hero{
+        padding: 140px 50px;
+    }
+}
+
+@media screen and (max-width:996px) {}
+
+@media screen and (max-width:769px) {} */

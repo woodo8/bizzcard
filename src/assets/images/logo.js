@@ -1,10 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
 
+
 export default function Logo() {
     const navigate = useNavigate()
     return (
-        <svg onClick={()=>navigate("/")} className='pointer' width="133" height="40" viewBox="0 0 133 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+        <svg onClick={()=>navigate("/")} className='pointer logo' width="133" height="40" viewBox="0 0 133 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <rect width="133" height="40" fill="url(#pattern0)" />
             <defs>
                 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
