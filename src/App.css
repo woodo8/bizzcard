@@ -4,56 +4,80 @@
   --main: linear-gradient(98.41deg, #E8C488 0%, #8D6736 100%)
 }
 
-.text-center{
+.text-center {
   text-align: center;
 }
-.text-left{
+
+.text-left {
   text-align: left;
 }
-.text-right{
+
+.text-right {
   text-align: right;
 }
 
-.d-flex{
+.d-flex {
   display: flex;
 }
-.d-block{
+
+.d-block {
   display: block;
 }
-.d-none{
+
+.d-none {
   display: none;
 }
 
-.align-center{
+.align-center {
   align-items: center;
 }
 
-.align-start{
+.align-start {
   align-items: flex-start;
 }
-.align-end{
+
+.align-end {
   align-items: flex-end;
 }
 
-.justify-between{
+.justify-between {
   justify-content: space-between;
 }
-.justify-around{
+
+.justify-around {
   justify-content: space-around;
 }
-.justify-start{
+
+.justify-start {
   justify-content: flex-start;
 }
-.justify-end{
+
+.justify-end {
   justify-content: flex-end;
 }
-.justify-center{
+
+.justify-center {
   justify-content: center;
 }
 
-.pointer{
+.pointer {
   cursor: pointer;
 }
-.Mui-focused{
+
+.Mui-focused {
   border: none !important;
+}
+
+.mobileViewOnly {
+  display: none !important;
+}
+
+
+@media screen and (max-width:769px) {
+  .mobileViewOnly {
+    display: block !important;
+  }
+  .mobileViewNone {
+    display: none !important;
+  }
 }

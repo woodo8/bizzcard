@@ -31,7 +31,7 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
         }
         {...props}
     />
-))(({ theme }) => ({
+))(() => ({
     background: "#fff",
     flexDirection: 'row-reverse',
     padding: '25px 80px',

@@ -13,7 +13,8 @@
     height: 460px;
     width: 100%;
     background: url("../../assets/images/profileBg.png");
-
+    background-size: cover;
+    background-position: center;
 }
 
 .myProfile .wrapper {
@@ -229,4 +230,129 @@
     font-size: 20px;
     text-align: center;
     color: #303030;
+}
+
+
+
+
+@media screen and (max-width:1300px) {
+    .myProfile {
+        padding: 40px 50px;
+    }
+
+    .myProfile .wrapper {
+        padding: 0px 0px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:996px) {
+    .myProfile {
+        padding: 40px 0px;
+    }
+
+    .myProfile .sectionBg {
+        height: 360px;
+    }
+
+    .myProfile .imgBox img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .myProfile .name {
+        font-size: 38px;
+    }
+
+    .myProfile .profession {
+        font-size: 24px;
+    }
+
+    .myProfile .saveProfile {
+        font-size: 24px !important;
+    }
+}
+
+@media screen and (max-width:769px) {
+    .myProfile {
+        padding: 40px 0px;
+    }
+
+    .myProfile .sectionBg {
+        height: 260px;
+    }
+
+    .myProfile .imgBox {
+        min-height: 50px;
+    }
+    
+    .myProfile .imgBox img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .myProfile .name {
+        font-size: 24px;
+    }
+
+    .myProfile .profession {
+        font-size: 16px;
+    }
+
+    .headingButtons {
+        font-size: 20px !important;
+        padding: 10px 6px !important;
+        line-height: 110% !important;
+    }
+
+    .myProfile .media {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+    }
+    .myProfile .bg-black {   
+        padding: 0 30px 90px 30px;
+    }
+    .myProfile .media li{
+        margin-bottom: 30px;
+    }
+    .myProfile .media li .circle {
+        width: 40px;
+        height: 40px;
+    }
+    .myProfile .media li .circle::after {
+        width: 38px;
+        height: 38px;  
+    }
+    .myProfile .media li .circle svg{
+        width: 18px;
+        height: 18px;
+    }
+    .myProfile .media p {
+        font-size: 14px;
+    }
+    .myProfile .share{
+        width: 100%;
+        padding: 0 20px;
+    }
+    .myProfile .share h6 {
+        font-size: 20px;
+    }
+    .myProfile .share .item {
+        margin: 0 10px;
+    }
+    
+    .myProfile .share .item .iconBox {
+        width: 36px;
+        height: 36px;
+       
+    }
+    
+    .myProfile .share .item .iconBox svg {
+        width: 25px;
+        height: 25px;
+        color: white;
+    }
+    .myProfile .share .item .iconBox+p {
+        font-size: 16px;
+    }
 }

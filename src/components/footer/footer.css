@@ -36,9 +36,42 @@
     cursor: pointer;
     transition: all 0.1s linear;
 }
-.footer ul li :hover{
+
+.footer ul li :hover {
     opacity: 0.8;
 }
-.footer ul li svg{
+
+.footer ul li svg {
     margin-right: 12px;
+}
+
+
+@media screen and (max-width:1100px) {
+    .footer {
+       display: flex;
+       flex-wrap: wrap;
+       padding: 65px 50px;
+    }
+    .footer .content{
+        width: 100%;
+    }
+    .footer .subs,.footer .contacts, .footer .media{
+        width: 30%;
+    }
+}
+
+@media screen and (max-width:996px) {}
+
+@media screen and (max-width:769px) {
+    .footer {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 65px 20px;
+     }
+     .footer .content{
+         width: 100%;
+     }
+     .footer .subs,.footer .contacts, .footer .media{
+         width: 100%;
+     }
 }

@@ -78,3 +78,30 @@
 .profileForm .submitBtn:hover {
     background: var(--main);
 }
+
+
+
+@media screen and (max-width:1300px) {
+    .profileForm {
+        padding: 50px 50px 40px;
+    }
+}
+
+@media screen and (max-width:996px) {
+    .profileForm {
+        padding: 50px 30px 40px;
+    }
+}
+
+@media screen and (max-width:769px) {
+    .profileForm {
+        padding: 50px 20px 40px;
+    }
+    .profileForm .heading {
+        font-size: 20px;
+        width: 90%;
+    }
+    .profileForm form h5 {
+        font-size: 20px;
+    }
+}

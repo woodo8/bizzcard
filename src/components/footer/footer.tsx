@@ -45,7 +45,7 @@ export default function Footer() {
             </div>
 
             <div className="contacts">
-                <Typography variant='h5'>Разделы</Typography>
+                <Typography variant='h5'>Контактные инфо</Typography>
                 <ul>
                     <li><a href="tel:+998991234567" className='d-flex align-center'> <Call /> <span>+998 99 123 45 67</span></a></li>
                     <li><a href="mailto: info@universalbank.uz" className='d-flex align-center'> <Email /> <span>info@universalbank.uz</span></a></li>
@@ -53,7 +53,7 @@ export default function Footer() {
                 </ul>
             </div>
             <div className="media">
-                <Typography variant='h5'>Разделы</Typography>
+                <Typography variant='h5'>Социальные сети</Typography>
                 <ul>
                     <li><a href="" className='d-flex align-center'> <Instagram /> <span>Instagram</span></a></li>
                     <li><a href="" className='d-flex align-center'> <Facebook /> <span>Facebook</span></a></li>

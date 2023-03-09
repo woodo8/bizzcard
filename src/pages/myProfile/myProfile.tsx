@@ -24,8 +24,8 @@ export default function MyProfile() {
                 <Grid className="wrapper" item xs={12}>
                     <TabsUnstyled defaultValue={0}>
                         <TabsList>
-                            <Tab>Мой BizzCard</Tab>
-                            <Tab>Изменить BizzCard</Tab>
+                            <Tab className='headingButtons'>Мой BizzCard</Tab>
+                            <Tab className='headingButtons'>Изменить BizzCard</Tab>
                         </TabsList>
                         <TabPanel value={0}>
 

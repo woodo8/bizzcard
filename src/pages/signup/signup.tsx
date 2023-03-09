@@ -46,7 +46,7 @@ export default function Signup() {
                 <img className='img5' src={Avatar5} alt="avatar" />
                 <img className='img6' src={Avatar6} alt="avatar" />
             </div>
-            <Grid item xs={4} className="wrapper d-block">
+            <Grid item xs={12} sm={6} md={5} className="wrapper d-block">
                 <Typography className='heading' variant='h4'>Регистрируйся сейчас</Typography>
                 <Typography className='description'>Вводитье свои данные для регистрации аккаунта</Typography>
                 <FormControl className='inputbox' fullWidth sx={{ m: 1 }} variant="outlined">

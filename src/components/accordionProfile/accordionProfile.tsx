@@ -34,7 +34,7 @@ export default function AccordionProfile() {
                     <Typography>Контакты</Typography>
                 </AccordionSummaryy>
                 <AccordionDetailss>
-                    <Typography className='name'>
+                    <Typography className='namee'>
                         Самадович Акмал Турсунов
                     </Typography>
                     <Typography className='tagName'>

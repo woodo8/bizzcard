@@ -33,7 +33,7 @@ export default function RPassword() {
                 <img className='img5' src={Avatar5} alt="avatar" />
                 <img className='img6' src={Avatar6} alt="avatar" />А
             </div>
-            <Grid item xs={4} className="wrapper d-block">
+            <Grid item xs={12} sm={7} md={6} lg={5} className="wrapper d-block">
                 <Typography className='heading' variant='h4'>Сброс пароля</Typography>
                 <Typography className='description'> мы вышлем вам электронное письмо  со ссылкой для сброса пароля к вашей учётной записи</Typography>
                 <FormControl className='inputbox' fullWidth sx={{ m: 1 }} variant="outlined">

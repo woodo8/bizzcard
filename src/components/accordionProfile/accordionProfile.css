@@ -9,7 +9,7 @@
     margin-left: 1em;
 }
 
-.accordionProfile .name {
+.accordionProfile .namee {
     font-weight: 500;
     font-size: 28px;
     color: #303030;
@@ -27,4 +27,32 @@
     line-height: 150%;
     color: #303030;
     margin-bottom: 10px;
+}
+@media screen and (max-width:1300px) {
+    
+}
+
+@media screen and (max-width:996px) {
+
+}
+
+@media screen and (max-width:769px) {
+    .accordionProfile {
+        width: 100%;
+    }
+    .accordionProfile .namee {
+        font-size: 18px;
+    }
+    .accordionProfile .tagName {
+        font-size: 16px;
+    }
+    .accordionProfile .content {
+       
+        font-size: 16px;
+    }
+    .accordionProfile .services li {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    
 }

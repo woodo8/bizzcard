@@ -451,55 +451,57 @@
         padding-left: 0px;
     }
 
-    .functions .cards{
+    .functions .cards {
         flex-wrap: wrap;
         justify-content: center;
     }
-    .functions .cards .card{
+
+    .functions .cards .card {
         width: 50%;
     }
+
     .howItWorks {
         padding: 100px 70px;
         background-color: #303030;
         color: white;
     }
-    
+
     .howItWorks .functions-heading {
         width: 80%;
     }
-    
+
     .howItWorks .top {
         font-weight: 400;
         font-size: 16px;
         margin-bottom: 10px;
     }
-    
+
     .howItWorks .heading {
         font-weight: 800;
         font-size: 38px;
         margin-bottom: 30px;
         letter-spacing: 1px;
-    }  
-    
+    }
+
     .howItWorks .hiwCard .iconbox {
         width: 115px;
         height: 115px;
     }
-    
+
     .howItWorks .hiwCard .iconbox .index {
         width: 20px;
         height: 20px;
         font-size: 12px;
     }
-    
+
     .howItWorks .hiwCard .step {
         font-size: 12px;
     }
-    
+
     .howItWorks .hiwCard .duration {
         font-size: 10px;
     }
-    
+
 
 }
 
@@ -517,12 +519,12 @@
         margin-bottom: 20px;
     }
 
-  
+
     .ad .wrapper {
         width: 80%;
-        
+
     }
-    
+
     .ad .top {
         font-size: 14px;
     }
@@ -535,45 +537,55 @@
         font-size: 14px;
     }
 
-    
-    .functions .cards{
-       display: block;
+
+    .functions .cards {
+        display: block;
     }
-    .functions .cards .card{
+
+    .functions .cards .card {
         width: 100%;
         padding: 0;
         margin-bottom: 80px;
     }
+
     .functions .functions-heading {
         width: 100%;
         margin: 0 auto 50px;
         font-size: 32px !important;
     }
+
     .howItWorks {
         padding: 100px 20px;
-        
+
     }
+
     .howItWorks .hiwContent {
         flex-wrap: wrap;
         margin: auto;
     }
-    .howItWorks .hiwContent .hiwCard{
+
+    .howItWorks .hiwContent .hiwCard {
         width: 100%;
         margin-bottom: 30px;
     }
+
     .howItWorks .functions-heading {
         width: 100%;
     }
-    .howItWorks .buttons{
+
+    .howItWorks .buttons {
         display: block;
     }
-    .howItWorks .buttons button{
+
+    .howItWorks .buttons button {
         width: 100%;
         margin-bottom: 20px;
     }
-    .testimonials{
+
+    .testimonials {
         display: block;
     }
+
     .testimonials .testimonials-card {
         width: 100%;
         padding: 0px;
@@ -581,13 +593,39 @@
         margin-bottom: 20px;
         /* background: url("../../assets/images/13\ Pro\ -\ 1.png"); */
     }
+
     .testimonials .testimonials-card.up {
         margin-top: 0px;
     }
-    
+
     .testimonials .testimonials-card.down {
         margin-bottom: 0px;
     }
+
+
+    .faq h4 {
+        font-size: 32px;
+    }
+    .faq .accordionSummary {
+        font-size: 18px;
+        margin-left: 20px;
+        font-weight: 600;
+    }
+    .faq .faqPlus .horizontal,
+    .faq .faqPlus .vertical {
+        height: 2.5px;
+        width: 16.5px;
+    }
+    .faq .accordionDescription {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        padding-bottom: 35px !important;
+        padding-top: 0 !important;
+    }
+    .faq .MuiButtonBase-root.MuiAccordionSummary-root {
+        padding: 18px 29px;
+    }
+
 }
 
 /* 

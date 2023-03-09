@@ -66,3 +66,26 @@
     width: 40px !important;
     background: var(--main);
 }
+
+
+
+@media screen and (max-width:1300px) {
+    .horizontalSlider___281Ls.carousel__slider {
+        height: 400px;
+    }
+    .carousel__slide{
+        height: 410px;
+    }
+}
+
+@media screen and (max-width:996px) {}
+
+@media screen and (max-width:769px) {
+    .horizontalSlider___281Ls.carousel__slider {
+        height: 200px;
+        width: 85%;
+    }
+    .carousel__slide{
+        height: 210px;
+    }
+}

@@ -29,8 +29,8 @@ function App() {
   return (
     // <BrowserRouter>
     <div className="App">
-      <Loader className={loading?"active":"disap"} />
-      <Routes>
+      <Loader className={loading ? "active" : "disap"} />
+      {!loading && <Routes>
         <Route
           path="/"
           element={<Homepage />} />
@@ -55,7 +55,7 @@ function App() {
         <Route
           path="/edit_profile"
           element={<EditProfile />} />
-      </Routes>
+      </Routes>}
     </div>
     // </BrowserRouter>
   );

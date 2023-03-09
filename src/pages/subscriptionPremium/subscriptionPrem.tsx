@@ -1,21 +1,32 @@
 import { Button, Grid, Typography } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import SidebarSubscription from '../../components/sidebarSubscription/sidebarSubscription'
 import Logo_original from '../../assets/images/gold 1.png'
 import TickCircle from '../../assets/images/tick-circle'
 import "./subscriptionPrem.css"
+import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded';
 
 export default function SubscriptionPrem() {
+
+    const [menuOpen, setMenuOpen] = useState<boolean>(true)
+
     return (
         <Grid container className='subscriptionPrem'>
-            <SidebarSubscription />
-            <Grid item xs={8}>
-                <Grid container className='wrapper'>
-                    <Grid item xs={7}>
+            <SidebarSubscription setPremMenuOpen={setMenuOpen} />
+            <Grid item xs={12} md={8}>
+                <Grid container className={`wrapper ${!menuOpen && "disap"}`}>
+                    <Grid item xs={12} md={7}>
                         <div className="heading premium">
+                            <HighlightOffRoundedIcon onClick={()=>setMenuOpen(false)} className='closeIcon mobileViewOnly' />
                             <img src={Logo_original} alt="logo" />
                             <div className="preBox">Premium</div>
                         </div>
+                        <Typography className='text-center heading mobileViewOnly' variant='h3'>
+                            Перейти на BizzCard Premium
+                        </Typography>
+                        <Typography className='text-center sub mobileViewOnly'>
+                            На 100% лучше остальных
+                        </Typography>
                         <div className="personalInfos">
                             <Typography className='heading_personal'>Личные данные</Typography>
                             <ul>
@@ -78,11 +89,11 @@ export default function SubscriptionPrem() {
                             </ul>
                         </div>
                     </Grid>
-                    <Grid className='right' item xs={5}>
-                        <Typography className='text-center heading' variant='h3'>
+                    <Grid className='right' xs={12} item md={5}>
+                        <Typography className='text-center heading mobileViewNone' variant='h3'>
                             Перейти на BizzCard Premium
                         </Typography>
-                        <Typography className='text-center sub'>
+                        <Typography className='text-center sub mobileViewNone'>
                             На 100% лучше остальных
                         </Typography>
 

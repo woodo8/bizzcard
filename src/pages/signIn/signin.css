@@ -1,6 +1,7 @@
 
 .signin .inputbox {
     margin: 0 0 20px 0 !important;
+    background-color: white;
 }
 
 .signin .input.Mui-focused .MuiOutlinedInput-notchedOutline {
@@ -14,28 +15,11 @@
 
 .signin .wrapper {
     margin: auto;
-}
-
-.signin .navbarAuth {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 80px;
     padding: 0 100px;
-    margin-bottom: 40px;
-    width: 100%;
 }
 
-.signin .navigator {
-    font-weight: 500;
-    font-size: 16px;
-    color: #AAAAAA;
-}
 
-.signin .navigator a {
-    color: #3D86F7;
-    text-decoration: underline;
-}
+
 
 .signin .heading {
     font-weight: 700;
@@ -102,4 +86,24 @@
     position: absolute;
     top: 70%;
     right: 200px;
+}
+
+
+@media screen and (max-width:1300px) {
+    .signin .wrapper {
+        margin: auto;
+        padding: 0 50px;
+    }
+    .avs{
+        display: none;
+    }
+}
+
+@media screen and (max-width:996px) {}
+
+@media screen and (max-width:769px) {
+    .signin .wrapper {
+        margin: 100px auto;
+        padding: 0 20px;
+    }
 }

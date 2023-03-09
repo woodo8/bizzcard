@@ -2,7 +2,8 @@
     padding: 25px 0 0 30px;
 }
 
-.subscriptionPrem .heading {
+.subscriptionPrem .heading.premium,
+.subscriptionPrem .heading.simple {
     padding: 25px;
     display: flex;
     align-items: center;
@@ -76,7 +77,11 @@
 
 .subscriptionPrem .personalInfos li svg {
     margin-right: 20px;
+    min-width: 24px !important;
 }
+.subscriptionPrem .personalInfos li svg path {
+    min-width: 24px !important;
+}   
 
 .subscriptionPrem .right {
     padding: 0 100px 0 30px;
@@ -141,6 +146,7 @@
     border-radius: 45px;
     width: 100%;
     margin-bottom: 10px;
+    text-transform: unset;
 }
 
 .subscriptionPrem .right button.cancel {
@@ -153,4 +159,82 @@
 
 .subscriptionPrem .right button.simple {
     background: linear-gradient(276.07deg, #303030 0%, rgba(48, 48, 48, 0.4) 100%);
+}
+
+.subscriptionPrem .closeIcon{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width:1300px) {
+
+    .subscriptionPrem .right {
+        padding: 0 30px 0 20px;
+        text-align: center;
+    }
+
+    .subscriptionPrem .right button {
+        font-size: 16px !important;
+    }
+
+
+}
+
+@media screen and (max-width:996px) {
+    .subscriptionPrem  .heading.mobileViewOnly {
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+
+    .subscriptionPrem .sub {
+        font-size: 12px;
+        margin-bottom: 30px;
+    }
+
+    .subscriptionPrem .right .priceBox {
+
+        margin-bottom: 40px;
+    }
+
+    .subscriptionPrem .right .priceBox h3 {
+        font-size: 18px;
+    }
+
+    .subscriptionPrem .right .priceBox p {
+        font-size: 12px;
+    }
+
+    .subscriptionPrem .right button {
+        font-size: 14px !important;
+    }
+}
+
+@media screen and (max-width:769px) {
+
+    .subscriptionPrem .wrapper{
+        /* display: none; */
+        position: fixed;
+        padding: 25px 20px 0 20px;
+        z-index: 99;
+        top: 10px;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 97%;
+        height: auto;
+        background-color: white;
+        overflow-y: scroll !important;
+        transition: all 0.4s linear;
+    }
+    .subscriptionPrem .wrapper.disap{
+        display: none;
+    }
+    .heading.premium,
+    .heading.simple{
+        position: relative;
+    }
 }
