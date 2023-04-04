@@ -7,7 +7,6 @@ import AccordionProfile from '../../components/accordionProfile/accordionProfile
 import NavbarMain from '../../components/navbarMain/navbarMain'
 import Carousel from '../../components/carousel/carousel'
 import ProfileForm from '../../components/profileForm/profileForm'
-import EditProfile from '../editProfile/editProfile'
 import TabsUnstyled from '@mui/base/TabsUnstyled';
 import { TabsList, Tab, TabPanel } from './utils'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
@@ -15,20 +14,20 @@ import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import Footer from '../../components/footer/footer'
+import EditProfile from '../editCard/editProfile'
 
-export default function MyProfile() {
+export default function BizzCard() {
     return (
         <>
             <NavbarMain />
             <Grid container className='myProfile'>
                 <Grid className="wrapper" item xs={12}>
-                    <TabsUnstyled defaultValue={0}>
+                    <TabsUnstyled defaultValue={1}>
                         <TabsList>
                             <Tab className='headingButtons'>Мой BizzCard</Tab>
                             <Tab className='headingButtons'>Изменить BizzCard</Tab>
                         </TabsList>
                         <TabPanel value={0}>
-
                             <div className='wrapper-child'>
                                 <div className="sectionBg"></div>
                                 <div className='bg-black'>

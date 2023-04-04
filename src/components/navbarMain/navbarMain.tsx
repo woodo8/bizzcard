@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Logo from '../../assets/images/logo.js'
 import "./navbarMain.css"
 //
@@ -12,6 +12,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { useLocation, useNavigate } from 'react-router';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import NavbarMobileMain from '../navbarMobileMain/navbarMobileMain';
+import { StateContext } from '../../context/useContext';
 
 function useScrollDirection() {
     const [scrollDirection, setScrollDirection] = useState<null | string>(null);
@@ -37,11 +38,14 @@ function useScrollDirection() {
 };
 
 
+
+
+
 export default function NavbarMain() {
+    const { globalUser: user } = useContext(StateContext);
 
     const [lang, setLang] = useState<string>('ru');
     const [menuActive, setMenuActive] = useState<boolean>(false)
-
 
     const handleChange = (event: SelectChangeEvent) => {
         setLang(event.target.value as string);
@@ -124,9 +128,16 @@ export default function NavbarMain() {
                     </FormControl>
                 </li>
             </ul>
-            <Button onClick={() => navigate("/signin")} className='profile-box d-flex align-center justify-between pointer'>
+            <Button onClick={() => navigate(user ? "/subscribe_premium" : "/signin")} className='profile-box d-flex align-center justify-between pointer'>
                 <ProfileImg />
-                <Typography>Личный кабинет</Typography>
+                {user ?
+                    <Typography>
+                        {user.full_name.split(" ")[0] + " " + user.full_name.split(" ")[1][0] + "."}
+                    </Typography> :
+                    <Typography>
+                        Личный кабинет
+                    </Typography>
+                }
             </Button>
         </div>
     )

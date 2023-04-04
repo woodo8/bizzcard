@@ -8,7 +8,7 @@ import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded';
 
 export default function SubscriptionPrem() {
 
-    const [menuOpen, setMenuOpen] = useState<boolean>(true)
+    const [menuOpen, setMenuOpen] = useState<boolean>(true);
 
     return (
         <Grid container className='subscriptionPrem'>
@@ -17,14 +17,14 @@ export default function SubscriptionPrem() {
                 <Grid container className={`wrapper ${!menuOpen && "disap"}`}>
                     <Grid item xs={12} md={7}>
                         <div className="heading premium">
-                            <HighlightOffRoundedIcon onClick={()=>setMenuOpen(false)} className='closeIcon mobileViewOnly' />
+                            <HighlightOffRoundedIcon onClick={()=>setMenuOpen(false)} className='closeIcon tabViewOnly' />
                             <img src={Logo_original} alt="logo" />
                             <div className="preBox">Premium</div>
                         </div>
-                        <Typography className='text-center heading mobileViewOnly' variant='h3'>
+                        <Typography className='text-center heading tabViewOnly' variant='h3'>
                             Перейти на BizzCard Premium
                         </Typography>
-                        <Typography className='text-center sub mobileViewOnly'>
+                        <Typography className='text-center sub tabViewOnly'>
                             На 100% лучше остальных
                         </Typography>
                         <div className="personalInfos">

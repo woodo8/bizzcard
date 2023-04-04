@@ -72,11 +72,30 @@
   display: none !important;
 }
 
+.tabViewOnly {
+  display: none !important;
+}
+
+.v-hidden {
+  visibility: hidden;
+}
+
+
+@media screen and (max-width:900px) {
+  .tabViewOnly {
+    display: block !important;
+  }
+
+  .tabViewNone {
+    display: none !important;
+  }
+}
 
 @media screen and (max-width:769px) {
   .mobileViewOnly {
     display: block !important;
   }
+
   .mobileViewNone {
     display: none !important;
   }

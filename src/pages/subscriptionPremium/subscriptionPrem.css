@@ -79,9 +79,10 @@
     margin-right: 20px;
     min-width: 24px !important;
 }
+
 .subscriptionPrem .personalInfos li svg path {
     min-width: 24px !important;
-}   
+}
 
 .subscriptionPrem .right {
     padding: 0 100px 0 30px;
@@ -161,7 +162,7 @@
     background: linear-gradient(276.07deg, #303030 0%, rgba(48, 48, 48, 0.4) 100%);
 }
 
-.subscriptionPrem .closeIcon{
+.subscriptionPrem .closeIcon {
     width: 30px;
     height: 30px;
     position: absolute;
@@ -185,7 +186,7 @@
 }
 
 @media screen and (max-width:996px) {
-    .subscriptionPrem  .heading.mobileViewOnly {
+    .subscriptionPrem .heading.mobileViewOnly {
         font-size: 22px;
         margin-bottom: 5px;
     }
@@ -213,9 +214,8 @@
     }
 }
 
-@media screen and (max-width:769px) {
-
-    .subscriptionPrem .wrapper{
+@media screen and (max-width:900px) {
+    .subscriptionPrem .wrapper {
         /* display: none; */
         position: fixed;
         padding: 25px 20px 0 20px;
@@ -230,11 +230,13 @@
         overflow-y: scroll !important;
         transition: all 0.4s linear;
     }
-    .subscriptionPrem .wrapper.disap{
+
+    .subscriptionPrem .wrapper.disap {
         display: none;
     }
+
     .heading.premium,
-    .heading.simple{
+    .heading.simple {
         position: relative;
     }
 }

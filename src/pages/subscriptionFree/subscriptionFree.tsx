@@ -18,7 +18,7 @@ export default function SubscriptionFree() {
                 <Grid container className={`wrapper ${!menuOpen && "disap"}`}>
                     <Grid item xs={12} md={7}>
                         <div className="heading simple">
-                            <HighlightOffRoundedIcon onClick={() => setMenuOpen(false)} className='closeIcon mobileViewOnly' />
+                            <HighlightOffRoundedIcon onClick={() => setMenuOpen(false)} className='closeIcon tabViewOnly' />
                             <img src={Logo_original} alt="logo" />
                             <div className="preBox">Бесплатно</div>
                         </div>

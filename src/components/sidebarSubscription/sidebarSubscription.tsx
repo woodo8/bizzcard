@@ -1,11 +1,13 @@
 import { Button, Grid, Typography } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import "./sidebarSubscription.css"
 import Logo from '../../assets/images/logo'
 import Avatar from "../../assets/images/Ellipse 22.png"
 import Logo_black from '../../assets/images/gold 2.png'
 import Logo_original from '../../assets/images/gold 1.png'
 import { useLocation, useNavigate } from 'react-router'
+import { StateContext } from '../../context/useContext'
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 interface MenuState {
     freeMenuOpen?: boolean;
@@ -14,19 +16,30 @@ interface MenuState {
     setPremMenuOpen?: any;
 }
 
-export default function SidebarSubscription({ freeMenuOpen, premiumMenuOpen, setFreeMenuOpen, setPremMenuOpen }: MenuState) {
-    const navigate = useNavigate()
-    const location = useLocation()
+export default function SidebarSubscription({ setFreeMenuOpen, setPremMenuOpen }: MenuState) {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { globalUser } = useContext(StateContext);
+
+    const userSignedIn = Object.keys(globalUser).length !== 0 ? true : false;
+
     return (
         <Grid item xs={12} md={4} className='sidebarSubscription'>
             <div className="navbar_subscribe d-flex align-center">
                 <Logo />
-                <div className='d-flex align-center'>
-                    <img className='profileImg' src={Avatar} alt="" />
-                    <Typography className='fullname'>
-                        Abdusamad Abdurakhmonov
-                    </Typography>
-                </div>
+                {
+                    userSignedIn &&
+                    <div onClick={() => navigate("/profile")} className='d-flex align-center pointer'>
+                        {
+                            globalUser.profile_img ?
+                                <img className='profileImg' src={globalUser.profile_img} alt="" /> :
+                                <AccountCircleOutlinedIcon className='profileImg' color="inherit" />
+                        }
+                        <Typography className='fullname'>
+                            {globalUser.full_name}
+                        </Typography>
+                    </div>
+                }
             </div>
             <div className="sub_content">
                 <div className='shadowBox'>

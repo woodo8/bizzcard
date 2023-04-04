@@ -177,13 +177,15 @@
     }
     .navbarMain .menuIcon{
         display: block;
+        min-width: 40px;
     }
     .navbarMain .navlist  {
         display: none;
     }
-
+    
     .navbarMain .profile-box {
-        padding: 8px 10px !important;
+        padding: 8px 0px !important;
+        min-width: 40px;
     }
 
     .navbarMain .profile-box p {

@@ -1,6 +1,6 @@
 
 .signin .inputbox {
-    margin: 0 0 20px 0 !important;
+    margin: 10px 0 10px 0 !important;
     background-color: white;
 }
 
@@ -17,7 +17,10 @@
     margin: auto;
     padding: 0 100px;
 }
-
+.signin .Mui-disabled{
+    color: white !important;
+    opacity: .6;
+}
 
 
 
@@ -86,6 +89,10 @@
     position: absolute;
     top: 70%;
     right: 200px;
+}
+.errorText{
+    color: rgb(208, 27, 27);
+    font-size: 14px !important;
 }
 
 

@@ -1,0 +1,42 @@
+.profile .MuiFormControl-root {
+    margin: 10px 0 15px;
+}
+
+.profile .labelText {
+    font-size: 14px;
+    font-weight: 600;
+    color: #303030;
+}
+
+.profile .submitBtn {
+    text-transform: unset;
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    float: right;
+}
+
+.profile .profileImg {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 30px auto;
+}
+.profile .imgFileBox input{
+    /* visibility: hidden; */
+}
+.profile .imgFileBox button{
+    width: 100%;
+    padding: 18px !important;
+    font-weight: 600;
+    text-transform: unset;
+    margin: 10px 0;
+}   
+.profile .imgFileBox button svg{
+    margin-right: 20px;
+}
+@media screen and (max-width:769px) {
+    .profile{
+        padding: 0 20px;
+    }
+} 
