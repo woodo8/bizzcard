@@ -6,15 +6,16 @@
 }
 
 .myProfile {
-    padding: 40px 100px;
+    padding: 0px 100px;
 }
 
 .myProfile .sectionBg {
     height: 460px;
     width: 100%;
-    background: url("../../assets/images/profileBg.png");
-    background-size: cover;
-    background-position: center;
+    background-size: cover !important;
+    background-position: center !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
 }
 
 .myProfile .wrapper {
@@ -22,7 +23,7 @@
 }
 
 .myProfile .wrapper-child {
-    margin-top: 30px;
+    margin-top: 0px;
     width: 100%;
     overflow-x: hidden;
 }
@@ -79,6 +80,8 @@
     left: 50%;
     transform: translateX(-50%);
     top: -130px !important;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .myProfile .name {
@@ -99,6 +102,25 @@
 
 .myProfile .media li {
     color: white;
+    padding: 0 30px;
+}
+
+.myProfile .media li:hover .circle {
+    scale: 1.1;
+    background: transparent;
+}
+
+.myProfile .media li:hover .circle::after {
+
+    background: var(--main);
+}
+
+.myProfile .media li:hover .circle svg {
+    filter: grayscale(100%);
+}
+
+.myProfile .media li a {
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,6 +134,7 @@
     height: 54px;
     border-radius: 50%;
     position: relative;
+    transition: all 0.2s linear;
 }
 
 .myProfile .media li .circle::after {
@@ -127,6 +150,14 @@
     background-color: #383838;
 }
 
+.myProfile .rdw-editor-toolbar {
+    display: none !important;
+}
+
+.myProfile .card-body {
+    border-radius: 5px !important;
+}
+
 .myProfile .media li .circle svg {
     position: absolute;
     display: block;
@@ -134,6 +165,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
+    transition: all 0.2s linear;
 }
 
 .myProfile .media p {
@@ -167,7 +199,9 @@
     font-size: 18px;
     text-align: center;
     color: #FFFFFF;
-    margin-bottom: 50px;
+    word-wrap: break-word;
+    width: 70%;
+    margin: 0 auto 50px;
 }
 
 .myProfile .share {
@@ -237,18 +271,22 @@
 
 @media screen and (max-width:1300px) {
     .myProfile {
-        padding: 40px 50px;
+        padding: 0px 50px;
     }
 
     .myProfile .wrapper {
         padding: 0px 0px;
         width: 100%;
     }
+
+    .myProfile .media li {
+        padding: 0 25px;
+    }
 }
 
 @media screen and (max-width:996px) {
     .myProfile {
-        padding: 40px 0px;
+        padding: 0px 0px;
     }
 
     .myProfile .sectionBg {
@@ -271,21 +309,29 @@
     .myProfile .saveProfile {
         font-size: 24px !important;
     }
+
+    .myProfile .media li {
+        padding: 0 18px;
+    }
 }
 
 @media screen and (max-width:769px) {
     .myProfile {
-        padding: 40px 0px;
+        padding: 0px 0px;
     }
 
     .myProfile .sectionBg {
-        height: 260px;
+        height: 360px;
+        background-size: cover !important;
+        background-position: center !important;
+        background-position: center !important;
+        background-attachment: unset !important;
     }
 
     .myProfile .imgBox {
         min-height: 50px;
     }
-    
+
     .myProfile .imgBox img {
         width: 160px;
         height: 160px;
@@ -308,50 +354,67 @@
     .myProfile .media {
         display: grid;
         grid-template-columns: repeat(3, auto);
+        justify-content: unset !important;
     }
-    .myProfile .bg-black {   
+
+    .myProfile .bg-black {
         padding: 0 30px 90px 30px;
     }
-    .myProfile .media li{
+
+    .myProfile .media {
+        margin: 0 20px;
+    }
+
+    .myProfile .media li {
         margin-bottom: 30px;
+        padding: 0px;
     }
+
     .myProfile .media li .circle {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
     }
+
     .myProfile .media li .circle::after {
-        width: 38px;
-        height: 38px;  
+        width: 56px;
+        height: 56px;
     }
-    .myProfile .media li .circle svg{
-        width: 18px;
-        height: 18px;
+
+    .myProfile .media li .circle svg {
+        width: 24px;
+        height: 24px;
     }
+
     .myProfile .media p {
         font-size: 14px;
+        font-weight: 600;
     }
-    .myProfile .share{
+
+    .myProfile .share {
         width: 100%;
         padding: 0 20px;
     }
+
     .myProfile .share h6 {
         font-size: 20px;
     }
+
     .myProfile .share .item {
         margin: 0 10px;
     }
-    
+
     .myProfile .share .item .iconBox {
         width: 36px;
         height: 36px;
-       
+
     }
-    
+
     .myProfile .share .item .iconBox svg {
         width: 25px;
         height: 25px;
         color: white;
     }
+
     .myProfile .share .item .iconBox+p {
         font-size: 16px;
     }

@@ -52,7 +52,45 @@
     border-radius: 10px;
     padding: 25px;
     cursor: pointer;
+    transition: all 0.4s linear;
+    animation: beat 1s linear infinite;
 }
+
+.containerSub .item:hover {
+    background-color:ivory;
+    border-radius: 0;
+    animation-play-state: paused;
+    rotate: 0deg !important;
+}
+.containerSub .item:first-child{
+    animation-delay: 0.4s;
+}
+.containerSub .item:hover p{
+    height: auto !important;
+    visibility: visible;
+    margin-top: 20px;
+
+}
+/*  */
+
+@keyframes beat {
+    0% {
+        rotate: 0deg;
+    }
+
+    33% {
+        rotate: 2deg;
+    }
+
+    66% {
+        rotate: -2deg;
+    }
+    100% {
+        rotate: 0deg;
+    }
+}
+
+/*  */
 
 .containerSub .item button {
     margin: 0 0 0 30px;
@@ -79,7 +117,10 @@
     text-align: center;
     color: #303030;
     opacity: 0.7;
-    margin-top: 20px;
+    margin-top: 0px;
+    height: 0 !important;
+    visibility: hidden;
+    transition: 0.2s linear;
 }
 
 @media screen and (max-width:1300px) {
@@ -118,6 +159,7 @@
         width: 100%;
         padding: 25px 20px 0 30px;
     }
+
     .containerSub p {
         font-size: 12px;
     }

@@ -42,6 +42,7 @@ export default function RPassword() {
 
     useEffect(() => {
         if (isError && 'data' in error) {
+            console.log(error)
             if (error.data === "User does not exist") {
                 setEmailInvalid("Пользователь не существует!");
             } else if (error.data === "Email is invalid") {

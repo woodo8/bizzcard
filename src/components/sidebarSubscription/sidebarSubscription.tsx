@@ -36,7 +36,16 @@ export default function SidebarSubscription({ setFreeMenuOpen, setPremMenuOpen }
                                 <AccountCircleOutlinedIcon className='profileImg' color="inherit" />
                         }
                         <Typography className='fullname'>
-                            {globalUser.full_name}
+                            {/* {globalUser.full_name} */}
+                            {
+
+                                globalUser.full_name.split(" ").length > 1 ?
+                                    globalUser.full_name
+                                    : globalUser.full_name.length > 11 ?
+                                        globalUser.full_name.slice(0, 12) + "."
+                                        : globalUser.full_name
+
+                            }
                         </Typography>
                     </div>
                 }

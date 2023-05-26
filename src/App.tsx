@@ -1,7 +1,7 @@
 import React, { useEffect, useState, } from 'react'
 import './App.css';
 // @ts-ignore
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom"
+import { Routes, Route, useLocation } from "react-router-dom"
 import Homepage from './pages/homepage/homepage';
 import Signin from './pages/signIn/signin';
 import Signup from './pages/signup/signup';
@@ -16,21 +16,24 @@ import { tokenMiddleware } from './services/tokenMiddleware';
 import ProtectedRoutes from './routes/protectedRoutes';
 import Profile from './pages/viewNEditProfile/profile';
 import BizzCard from './pages/bizzcard/bizzCard';
-import EditProfile from './pages/editCard/editProfile';
 import NewPassword from './pages/newPassword/newPassword';
+import OrderSuccess from './pages/orderSuccess/orderSuccess';
+import MyCards from './pages/myCards/myCards';
+import EditCard from './pages/editCard/editCard';
+import CreateNewCard from './pages/createNewCard/createNewCard';
+import ScrollToTop from 'react-scroll-up'
 
 function App() {
 
-  let location = useLocation()
-  const navigate = useNavigate()
   const [loading, setLoading] = useState<boolean>(false)
 
   useEffect(() => {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    }, 2000);
-  }, [location.pathname])
+    }, 3000);
+  }, [])
+
 
   // if user is signed in, check whether his/her token is not expired
 
@@ -42,7 +45,6 @@ function App() {
   // get the user info in order to check the validity of the token  
   const { data, error, isLoading, isSuccess, isError } = useGetUserQuery({ token, id: globalUser.id });
 
-
   useEffect(() => {
     // check if the error is returned
     if (isError) {
@@ -53,6 +55,7 @@ function App() {
     if (isSuccess) {
       setGlobalUser(data)
     }
+
   }, [isLoading])
 
   return (
@@ -63,7 +66,13 @@ function App() {
     }}>
       <div className="App">
         <Loader className={loading ? "active" : "disap"} />
-        {!loading && <Routes>
+        <ScrollToTop easing='easeOutQuint' duration={1000} showUnder={160}>
+          <span>UP</span>
+        </ScrollToTop>
+        <Routes>
+          {/* <Route
+            path="/"
+            element={<Test />} /> */}
           <Route
             path="/"
             element={<Homepage />} />
@@ -86,23 +95,31 @@ function App() {
             path="/subscribe_free"
             element={<SubscriptionFree />} />
           <Route
-            path="/bizz_card"
+            path="/bizz_card/:id"
             element={<BizzCard />} />
           <Route
-            path="/edit_profile"
-            element={<EditProfile />} />
+            path="/edit_card"
+            element={<EditCard />} />
           <Route
             path="/login_success"
             element={<LoginSuccess />} />
+          <Route
+            path="/order_success"
+            element={<OrderSuccess />} />
           <Route element={<ProtectedRoutes />}>
             <Route
               path="/profile"
               element={<Profile />} />
+            <Route
+              path="/my_cards/"
+              element={<MyCards />} />
+            <Route
+              path="/create_card/:value/:contactsValue"
+              element={<CreateNewCard />} />
           </Route>
-        </Routes>}
+        </Routes>
       </div>
     </StateContext.Provider>
-
   );
 }
 

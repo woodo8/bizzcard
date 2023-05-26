@@ -80,6 +80,17 @@
   visibility: hidden;
 }
 
+.default {
+  /* all: unset !important; */
+  visibility: visible !important;
+  height: auto !important;
+  margin: auto !important;
+  padding: auto !important;
+}
+
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
 
 @media screen and (max-width:900px) {
   .tabViewOnly {

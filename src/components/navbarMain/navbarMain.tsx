@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Logo from '../../assets/images/logo.js'
 import "./navbarMain.css"
 //
-import { Button, styled, Typography } from "@mui/material"
+import { Button, Typography } from "@mui/material"
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -13,7 +13,10 @@ import { useLocation, useNavigate } from 'react-router';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import NavbarMobileMain from '../navbarMobileMain/navbarMobileMain';
 import { StateContext } from '../../context/useContext';
-
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import WidgetsIcon from '@mui/icons-material/Widgets';
+import LogoutIcon from '@mui/icons-material/Logout';
 function useScrollDirection() {
     const [scrollDirection, setScrollDirection] = useState<null | string>(null);
 
@@ -37,15 +40,14 @@ function useScrollDirection() {
     return scrollDirection;
 };
 
-
-
-
-
 export default function NavbarMain() {
     const { globalUser: user } = useContext(StateContext);
 
     const [lang, setLang] = useState<string>('ru');
-    const [menuActive, setMenuActive] = useState<boolean>(false)
+    const [menuActive, setMenuActive] = useState<boolean>(false);
+
+    const [showTooltip, setShowTooltip] = useState<boolean>(false)
+
 
     const handleChange = (event: SelectChangeEvent) => {
         setLang(event.target.value as string);
@@ -55,6 +57,13 @@ export default function NavbarMain() {
     const scrollDirection = useScrollDirection();
 
     const navigate = useNavigate();
+
+    const logout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        window.location.reload();
+        navigate("/")
+    }
 
     return (
         <div className={`navbarMain ${scrollDirection === "down" ? "-top-24" : "top-0"}`}>
@@ -121,6 +130,7 @@ export default function NavbarMain() {
                             className="langSelect d-flex align-center"
                             variant='standard'
                         >
+
                             <MenuItem value={"uz"}><RussiaFlag /> UZ</MenuItem>
                             <MenuItem value={"ru"}><RussiaFlag /> RU</MenuItem>
                             <MenuItem value={"en"}><RussiaFlag /> EN</MenuItem>
@@ -128,17 +138,65 @@ export default function NavbarMain() {
                     </FormControl>
                 </li>
             </ul>
-            <Button onClick={() => navigate(user ? "/subscribe_premium" : "/signin")} className='profile-box d-flex align-center justify-between pointer'>
-                <ProfileImg />
-                {user ?
-                    <Typography>
-                        {user.full_name.split(" ")[0] + " " + user.full_name.split(" ")[1][0] + "."}
-                    </Typography> :
-                    <Typography>
-                        Личный кабинет
-                    </Typography>
-                }
-            </Button>
+            <Tooltip title={!user ?
+                "Login"
+                :
+                (<div className='popupNavbar'>
+                    <ul>
+                        <li onClick={() => navigate("/profile")} className='d-flex align-center'><ProfileImg />My profile</li>
+                        <li onClick={() => navigate("/my_cards")} className='d-flex align-center'><WidgetsIcon />My cards</li>
+                        <li onClick={() => navigate("/create_card/:value/:contactsValue")} className='d-flex align-center'>
+                            <Button className="premium-btn">
+                                Create New Card
+                            </Button>
+                        </li>
+                        <li onClick={logout} className='d-flex align-center red'><LogoutIcon />Logout</li>
+                    </ul>
+                </div>)
+            }
+                placement="bottom-start"
+                enterTouchDelay={0}
+                leaveTouchDelay={5000}
+                arrow
+                open={showTooltip}
+                onOpen={() => setShowTooltip(true)}
+                onClose={() => setShowTooltip(false)}
+            >
+                <IconButton
+                    onClick={() => {
+                        !user ? navigate(
+                            // user
+                            // ?
+                            // user.subscription === null
+                            //     ?
+                            //     "/subscribe_premium"
+                            //     :
+                            //     "/my_cards"
+                            // :
+
+                            "/signin") : setShowTooltip(!showTooltip)
+                    }}
+                    className='profile-box d-flex align-center justify-between pointer'>
+                    <ProfileImg />
+                    {user ?
+                        (
+
+                            <Typography>
+                                {user.full_name.split(" ").length > 1 ?
+                                    user.full_name.split(" ")[0] + " " + user.full_name.split(" ")[1][0] + "."
+                                    : user.full_name.length > 11 ?
+                                        user.full_name.slice(0, 12) + "."
+                                        : user.full_name
+                                }
+                            </Typography>
+                        )
+                        :
+                        <Typography>
+                            Личный кабинет
+                        </Typography>
+                    }
+                </IconButton>
+            </Tooltip>
         </div>
     )
 }

@@ -15,7 +15,7 @@
     top: 0;
 }
 .loader.disap{
-    top: -150%;
+    top: 0;
     visibility: hidden;
     /* display: none; */
 }

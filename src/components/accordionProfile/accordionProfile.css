@@ -1,58 +1,67 @@
 .accordionProfile {
-    width: 454px;
+    width: 769px;
     margin: auto;
+    border-radius: 10px !important;
+    overflow: hidden;
 }
 
 .accordionProfile .services li {
-    list-style: disc outside none;
-    display: list-item;
-    margin-left: 1em;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
 }
 
 .accordionProfile .namee {
-    font-weight: 500;
+    font-weight: 800;
     font-size: 28px;
     color: #303030;
 }
 
 .accordionProfile .tagName {
-    font-weight: 700;
+    font-weight: 500;
     font-size: 18px;
     line-height: 150%;
-    color: #303030;
+    color: #A2A2A9;
 }
+
 .accordionProfile .content {
-    font-weight: 500;
+    font-weight: 800;
     font-size: 18px;
     line-height: 150%;
     color: #303030;
     margin-bottom: 10px;
 }
-@media screen and (max-width:1300px) {
-    
-}
+
+@media screen and (max-width:1300px) {}
 
 @media screen and (max-width:996px) {
+    .accordionProfile {
+        width: 569px;
 
+    }
 }
 
 @media screen and (max-width:769px) {
     .accordionProfile {
         width: 100%;
     }
+
     .accordionProfile .namee {
         font-size: 18px;
     }
+
     .accordionProfile .tagName {
         font-size: 16px;
     }
+
     .accordionProfile .content {
-       
+
         font-size: 16px;
     }
+
     .accordionProfile .services li {
-        font-size: 18px;
+        font-size: 16px;
         margin-bottom: 12px;
     }
-    
+
 }

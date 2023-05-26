@@ -1,18 +1,56 @@
 import { Button, Grid, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import SidebarSubscription from '../../components/sidebarSubscription/sidebarSubscription'
 import Logo_original from '../../assets/images/gold 2.png'
 import TickCircle from '../../assets/images/tick-circle'
 import "../subscriptionPremium/subscriptionPrem.css"
 import Lock from '../../assets/images/lock'
 import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded';
+import { useNavigate } from 'react-router'
+import { StateContext } from '../../context/useContext'
+import { useUpdateUserMutation } from '../../services/authApi'
 
 
 export default function SubscriptionFree() {
-    const [menuOpen, setMenuOpen] = useState<boolean>(true)
+    const [menuOpen, setMenuOpen] = useState<boolean>(true);
+    const navigate = useNavigate();
+
+    const { globalUser } = useContext(StateContext);
+
+    const [updateUser, result] = useUpdateUserMutation()
+    const { data, error, isError, isLoading, isSuccess } = result;
+
+    const token = localStorage.getItem("token")
+
+    const handleOrder = async () => {
+        if (!globalUser) {
+            return navigate("/signin")
+        }
+
+        if (globalUser.subscription === "FREE" || globalUser.subscription === "PREMIUM") {
+            return navigate(`/my_cards/`)
+        }
+        return await updateUser({
+            user: { subscription: "FREE" },
+            token: token,
+            id: globalUser.id
+        })
+    }
+
+    useEffect(() => {
+        data && navigate("/order_success")
+        if (error) {
+            let answer = window.confirm("Something went wrong. Please try again later!")
+            if (answer) {
+                navigate("/")
+            }
+        }
+    }, [isLoading])
+
+
     return (
         <Grid container className='subscriptionPrem'>
-            <SidebarSubscription  setFreeMenuOpen={setMenuOpen} />
+            <SidebarSubscription setFreeMenuOpen={setMenuOpen} />
             <Grid item xs={12} md={8}>
 
                 <Grid container className={`wrapper ${!menuOpen && "disap"}`}>
@@ -101,7 +139,7 @@ export default function SubscriptionFree() {
                             </Typography>
                         </div>
 
-                        <Button className='simple'>
+                        <Button onClick={handleOrder} className='simple'>
                             Оформить заказ
                         </Button>
                         <Button className='cancel'>

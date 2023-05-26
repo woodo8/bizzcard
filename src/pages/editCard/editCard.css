@@ -1,6 +1,7 @@
 .editProfile {
     background-color: #111111;
     color: white;
+    margin:40px 0 100px 0;
 }
 
 .editProfile .MuiTabs-root {
@@ -17,7 +18,8 @@
 
 .contactInfo .input {
     color: white;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    margin-top: 15px;
     display: block;
 }
 
@@ -85,6 +87,10 @@
     margin-bottom: 30px;
 }
 
+.editProfile .DraftEditor-root {
+    height: 490px !important;
+}
+
 .editProfile .panelHeading {
     font-weight: 600;
     font-size: 18px;
@@ -93,6 +99,15 @@
     border-bottom: 2px solid white;
     margin-bottom: 20px;
     padding: 10px 0;
+}
+.editProfile .serviceTextarea{
+    display: block;
+    min-width: 100%;
+    max-width: 100% !important;
+    min-height: 200px;
+    max-height: 200px;
+    padding: 20px;
+    margin: 15px 0;
 }
 
 .editProfile .bgImageBox {
@@ -129,11 +144,14 @@
 }
 
 .editProfile .img {
+    display: block;
     width: 228px;
     height: 148px;
     background-color: #D9D9D9;
     display: block;
     margin-right: 15px;
+    object-fit: cover;
+    object-position: top;
 }
 
 .editProfile .bgImageBox h6 {
@@ -181,7 +199,10 @@
 
     .editProfile .card-body {
         min-height: 250px;
-        min-height: 250px;
+    }
+
+    .editProfile .DraftEditor-root {
+        height: 240px !important;
     }
 
     .contactInfo .input input {

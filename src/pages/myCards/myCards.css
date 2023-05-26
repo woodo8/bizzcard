@@ -1,0 +1,301 @@
+.myCards .card-item {
+    margin-bottom: 15px;
+}
+
+.myCards .card-item .card-content {
+    width: 100%;
+    aspect-ratio: 1/1.2;
+    overflow: hidden;
+    margin-bottom: 15px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.myCards .card-item h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #303030;
+    margin-bottom: 10px;
+}
+
+.myCards .card-item h3 {
+    font-size: 18px;
+    color: #303030;
+    margin-bottom: 10px;
+}
+
+.myCards .card-item p {
+    font-size: 14px;
+    color: #AAAAAA;
+    margin-bottom: 10px;
+}
+
+.myCards .sevtionHeader {
+    font-weight: 900;
+    margin: 30px 0;
+}
+
+.myCards .bg-main .card-content {
+    background: var(--main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 128px;
+    width: 100%;
+    font-weight: 800;
+    border-radius: 0 !important;
+    transition: all 0.2s linear;
+}
+
+.myCards .bg-main .card-content:hover {
+    border-radius: 30px !important;
+}
+
+.myCards .bg-black::after {
+    content: "";
+    display: block;
+    width: 700px;
+    height: 60px;
+    background-color: green;
+    position: absolute;
+    top: -45px;
+    left: -50px;
+    transform: rotate(5deg);
+    background-color: #383838;
+    z-index: 1;
+
+}
+
+.myCards .bg-black::before {
+    content: "";
+    display: block;
+    width: 700px;
+    height: 60px;
+    background-color: blue;
+    position: absolute;
+    top: -45px;
+    right: -50px;
+    transform: rotate(-5deg);
+    background-color: #383838;
+    z-index: 1;
+
+}
+
+.myCards .sectionBg {
+    height: 220px;
+    background-attachment: unset !important;
+}
+
+
+.myCards .imgBox {
+    min-height: 30px;
+}
+
+.myCards .imgBox img {
+    width: 120px;
+    height: 120px;
+    top: -130px !important;
+}
+
+.myCards .name {
+    margin-top: 0px !important;
+    font-weight: 800;
+    font-size: 18px !important;
+    color: #FFFFFF;
+    color: white !important;
+}
+
+.myCards .profession {
+    font-weight: 700;
+    font-size: 12px !important;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.myCards .media li {
+    padding: 0 5px;
+}
+
+.myCards .media li:hover .circle {
+    scale: 1;
+    background: linear-gradient(45deg, #E8C488, #8D6736) border-box !important;
+}
+
+.myCards .media li:hover .circle::after {
+    background: #383838;
+}
+
+.myCards .media li:hover .circle svg {
+    filter: grayscale(0%);
+}
+
+
+.myCards .media li .circle {
+    border: 2px solid transparent;
+    /* mask-composite: exclude; */
+    width: 25px;
+    height: 25px;
+}
+
+.myCards .media li .circle::after {
+    width: 23px;
+    height: 23px;
+    content: "";
+    background-color: #383838;
+}
+
+.myCards .media li .circle svg {
+    height: 10px !important;
+    width: 10px !important;
+}
+
+.myCards .media p {
+    font-size: 10px;
+}
+
+.myCards .skeletons {
+    color: white !important;
+}
+
+@media screen and (max-width:996px) {
+    .myCards {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .myCards .card-item .card-content {
+        width: 100% !important;
+        overflow: hidden;
+        margin-bottom: 15px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width:769px) {
+    .myCards {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .myCards .card-item h2 {
+        font-size: 18px;
+    }
+
+    .myCards .card-item h3 {
+        font-size: 14px;
+    }
+
+    .myCards .card-item p {
+        font-size: 10px;
+    }
+
+    .myCards .sectionBg {
+        height: 150px;
+    }
+
+    .myCards .media li {
+        margin-bottom: 0 !important;
+    }
+
+    .myCards .imgBox img {
+        width: 80px;
+        height: 80px;
+        top: -90px !important;
+    }
+}
+
+@media screen and (max-width:496px) {
+    .myCards .card-item {
+        padding-top: 0px !important;
+    }
+
+    .myCards .sectionBg {
+        height: 70px;
+        background-attachment: unset !important;
+    }
+
+    .myCards .imgBox img {
+        width: 50px;
+        height: 50px;
+        top: -40px !important;
+    }
+
+    .myCards .bg-black::after {
+        content: "";
+        display: block;
+        width: 700px;
+        height: 30px;
+        background-color: green;
+        position: absolute;
+        top: -12px;
+        left: -50px;
+        transform: rotate(2deg);
+        background-color: #383838;
+        z-index: 1;
+
+    }
+
+    .myCards .bg-black::before {
+        content: "";
+        display: block;
+        width: 700px;
+        height: 30px;
+        background-color: blue;
+        position: absolute;
+        top: -12px;
+        right: -50px;
+        transform: rotate(-2deg);
+        background-color: #383838;
+        z-index: 1;
+
+    }
+
+    .myCards .name {
+        margin-top: 0px !important;
+        font-weight: 800;
+        font-size: 12px !important;
+        color: #FFFFFF;
+        color: white !important;
+        margin-bottom: 10px !important;
+    }
+
+    .myCards .profession {
+        font-weight: 700;
+        font-size: 8px !important;
+        color: #FFFFFF;
+        margin-bottom: 8px;
+    }
+
+    .myCards .imgBox {
+        min-height: 15px;
+    }
+
+    .myCards .media li .circle {
+        border: 2px solid transparent;
+        /* mask-composite: exclude; */
+        width: 18px;
+        height: 18px;
+    }
+
+    .myCards .media li .circle::after {
+        width: 16px;
+        height: 16px;
+        content: "";
+        background-color: #383838;
+    }
+
+    .myCards .media li .circle svg {
+        height: 6px !important;
+        width: 6px !important;
+    }
+    .myCards .media li {
+        padding: 0px;
+    }
+    .myCards .media p {
+        font-size: 5px;
+    }
+    .myCards .media{
+        margin: 0;
+    }
+}

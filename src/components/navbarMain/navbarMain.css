@@ -11,9 +11,11 @@
     transition: all 0.2s linear;
     z-index: 99;
 }
-.navbarMain .menuIcon{
+
+.navbarMain .menuIcon {
     display: none;
 }
+
 .navbarMain .logo {
     width: 133px;
     min-width: 133px;
@@ -110,6 +112,39 @@
     border-bottom: none !important;
 }
 
+.popupNavbar ul {
+    padding: 5px 20px !important;
+}
+
+.popupNavbar ul li {
+    margin: 15px 0;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.popupNavbar ul li:hover {
+    text-decoration: underline;
+}
+
+.popupNavbar ul li svg {
+    margin-right: 10px;
+}
+
+.popupNavbar ul li svg path {
+    fill: #FFFFFF !important;
+}
+
+.popupNavbar ul li.red {
+    color: #ff595e;
+
+}
+
+.popupNavbar ul li.red svg path {
+    fill: #ff595e !important;
+}
+
 @media screen and (max-width:1300px) {
     .navbarMain {
         padding: 0 50px;
@@ -119,9 +154,11 @@
         width: 100px;
         min-width: 100px;
     }
+
     .navlist li {
         margin: 0 10px;
     }
+
     .navlist li p {
         font-size: 14px;
         ;
@@ -134,11 +171,13 @@
     .navbarMain .profile-box p {
         font-size: 14px;
     }
+
     .navbarMain .premium-btn {
-      
+
         padding: 8px 16px !important;
     }
 }
+
 @media screen and (max-width:996px) {
     .navbarMain {
         padding: 0 30px;
@@ -148,12 +187,15 @@
         width: 80px;
         min-width: 80px;
     }
+
     .navlist li {
         margin: 0 8px;
     }
+
     .navlist li p {
         font-size: 12px;
     }
+
     .navbarMain .profile-box {
         padding: 8px 10px !important;
     }
@@ -161,11 +203,13 @@
     .navbarMain .profile-box p {
         font-size: 12px;
     }
+
     .navbarMain .premium-btn {
-      
+
         padding: 8px 14px !important;
     }
 }
+
 @media screen and (max-width:769px) {
     .navbarMain {
         padding: 0 20px;
@@ -175,14 +219,16 @@
         width: 133px;
         min-width: 133px;
     }
-    .navbarMain .menuIcon{
+
+    .navbarMain .menuIcon {
         display: block;
         min-width: 40px;
     }
-    .navbarMain .navlist  {
+
+    .navbarMain .navlist {
         display: none;
     }
-    
+
     .navbarMain .profile-box {
         padding: 8px 0px !important;
         min-width: 40px;
@@ -191,7 +237,8 @@
     .navbarMain .profile-box p {
         display: none;
     }
+
     .navbarMain .premium-btn {
-    display: none;        
+        display: none;
     }
 }

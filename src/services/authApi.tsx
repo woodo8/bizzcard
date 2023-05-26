@@ -5,9 +5,9 @@ export const authApi = createApi({
     baseQuery: fetchBaseQuery({
         // Local
         // baseUrl: "http://localhost:8080/"
-
+        baseUrl: process.env.REACT_APP_BASE_URL
         // Server
-        baseUrl: "https://bizzcard-back.onrender.com/"
+        // baseUrl: "https://bizzcard-back.onrender.com/"
     }),
     endpoints: (builder) => ({
         signup: builder.mutation({
@@ -26,7 +26,7 @@ export const authApi = createApi({
         }),
         getUser: builder.query({
 
-            query: (payload) => ({
+            query: (payload: any) => ({
                 headers: {
                     authorization: `Bearer ${payload.token}`,
                 },
@@ -35,7 +35,7 @@ export const authApi = createApi({
             })
         }),
         updateUser: builder.mutation({
-            query: (payload) => ({
+            query: (payload: any) => ({
                 headers: {
                     authorization: `Bearer ${payload.token}`,
                 },
@@ -53,9 +53,6 @@ export const authApi = createApi({
         }),
         resetPassword: builder.mutation({
             query: (payload) => ({
-                headers: {
-                    authorization: `Bearer ${payload.token}`,
-                },
                 url: `/auth/reset_password`,
                 method: "PATCH",
                 body: payload.data,

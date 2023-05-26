@@ -96,7 +96,11 @@ export default function Signin() {
             // Update the user in Context
             setGlobalUser(data.result)
             localStorage.setItem("token", data.token);
-            navigate("/subscribe_free")
+            navigate(data.result.subscription === null
+                ?
+                "/subscribe_premium"
+                :
+                "/my_cards")
         }
 
     }, [result])
@@ -159,13 +163,16 @@ export default function Signin() {
                                 >
                                     {showPassword ? <VisibilityOffOutlinedIcon style={{ color: "#aaa" }} /> : <VisibilityOutlinedIcon style={{ color: "#aaa" }} />}
                                 </IconButton>
-                                <IconButton
-                                    edge="end"
-                                    color='error'
-                                    sx={{ marginLeft: "10px" }}
-                                >
-                                    <ReportGmailerrorredOutlinedIcon />
-                                </IconButton>
+                                {
+                                    isError &&
+                                    <IconButton
+                                        edge="end"
+                                        color='error'
+                                        sx={{ marginLeft: "10px" }}
+                                    >
+                                        <ReportGmailerrorredOutlinedIcon />
+                                    </IconButton>
+                                }
                             </InputAdornment>
                         }
                     />

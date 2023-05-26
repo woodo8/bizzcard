@@ -32,6 +32,9 @@ export default function Homepage() {
       <NavbarMain />
       <Hero />
 
+      {/* <img src="http://localhost:8080/uploads/1681518569186icons8-close-48.png" alt="..." /> */}
+
+      
       {/* FACTS SECTION START */}
       <section className='facts'>
         <ul className='d-flex justify-between'>

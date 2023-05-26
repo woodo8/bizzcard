@@ -1,10 +1,9 @@
+import TabsList from '@mui/base/TabsList';
+import TabPanel from '@mui/base/TabPanel';
+import Tab, { tabClasses } from '@mui/base/Tab';
 import { styled } from '@mui/system';
-import TabsListUnstyled from '@mui/base/TabsListUnstyled';
-import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
-import { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
-import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled';
 
-export const Tab = styled(TabUnstyled)`
+export const StyledTab = styled(Tab)`
 cursor: pointer;
 color: #fff;
 font-weight: 400;
@@ -28,19 +27,14 @@ justify-content: flex-start;
   border-bottom: 2px solid #111;
 }
 
-&.${tabUnstyledClasses.selected} {
+&.${tabClasses.selected} {
   background-color: #fff;
   border-bottom: 2px solid #111;
 }
-
-&.${buttonUnstyledClasses.disabled} {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
 `;
 
-export const TabPanel = styled(TabPanelUnstyled)(
-    () => `
+export const StyledTabPanel = styled(TabPanel)(
+  () => `
 width: 100%;
 font-family: IBM Plex Sans, sans-serif;
 font-size: 0.875rem;
@@ -48,8 +42,8 @@ border-radius: 12px;
 `,
 );
 
-export const TabsList = styled(TabsListUnstyled)(
-    () => `
+export const StyledTabsList = styled(TabsList)(
+  () => `
 width:auto;
 border-radius: 12px;
 margin-bottom: 16px;

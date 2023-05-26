@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashLoader } from "react-spinners"
+import { HashLoader,PropagateLoader } from "react-spinners"
 import "./loader.css"
 
 
@@ -10,7 +10,7 @@ interface ClassNameLoader{
 export default function Loader(props:ClassNameLoader) {
     return (
         <div className={`loader ${props.className}`}>
-            <HashLoader  color="#8D6736" size={150} />
+            <PropagateLoader  color="#8D6736" size={15} />
         </div>
     )
 }
