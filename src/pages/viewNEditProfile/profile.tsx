@@ -36,11 +36,11 @@ export default function Profile() {
             if ('status' in error && 'data' in error) {
                 token && tokenMiddleware(error.status, error.data)
             }
+            alert("Something went wrong please try again later!")
         }
         if (isSuccess) {
             setGlobalUser(data);
             localStorage.setItem("user", JSON.stringify(data));
-
         }
     }, [isLoading])
 
@@ -51,27 +51,24 @@ export default function Profile() {
             full_name: fullName !== user.full_name ? fullName : null,
             email: email !== user.email ? email : null,
             mobile: number !== user.mobile ? number : null,
-            profile_img: Object.keys(image).length !== 0 ? image : null,
         }
+        const formData = new FormData();
+
+        for (var key in updatedUser) {
+            //@ts-ignore
+            formData.append(key, updatedUser[key]);
+        }
+        image && formData.append("profile_img", image.img);
+
+
 
         // remove all the empty values from object
-        function removeEmptyValues(userArg: any) {
-            for (var key in userArg) {
-                if (userArg.hasOwnProperty(key)) {
-                    var value = userArg[key];
-                    if (value === null || value === undefined || value === '') {
-                        delete userArg[key];
-                    }
-                }
-            }
-        }
 
-        removeEmptyValues(updatedUser)
 
         Object.keys(updatedUser).length !== 0 && await updateUser({
             token: token,
             id: user.id,
-            user: updatedUser,
+            user: formData,
         })
     }
 
@@ -81,21 +78,28 @@ export default function Profile() {
             <Grid container className='myProfile profile justify-center'>
                 <Grid className="wrapper" item xs={12} sm={6}>
                     {Object.keys(image).length !== 0 ?
-                        <img className='profileImg' src={image} alt="" /> :
+                        <img className='profileImg' src={image.preViews} alt="" /> :
                         user.profile_img ?
                             <img className='profileImg' src={user.profile_img} alt="" /> :
                             <AccountCircleOutlinedIcon className='profileImg' />
                     }
                     <div className="imgFileBox">
+                        {/* <Button variant="outlined"> */}
                         <label htmlFor="imgFile">
-                            <Button variant="outlined"><UploadFileOutlinedIcon /> Change profile photo</Button>
+                            <UploadFileOutlinedIcon /> Change profile photo
                         </label>
-                        <FileBase
-                            type="file"
-                            multiple={false}
-                            onDone={(e: any) => setImage(e.base64)}
-                            inputId="imgFile"
-                        />
+                        <input onChange={(e) => {
+                            // @ts-ignore: Object is possibly 'null'.
+                            if (e.target.files.length !== 0) {
+                                setImage({
+                                    // @ts-ignore: Object is possibly 'null'.
+                                    img: e.target.files[0],
+                                    // @ts-ignore: Object is possibly 'null'.
+                                    preViews: URL.createObjectURL(e.target.files[0]),
+                                })
+                            }
+                        }} id='imgFile' type="file" className='v-hidden' />
+                        {/* </Button> */}
                     </div>
                     <Typography className="labelText">Email</Typography>
                     <FormControl className='inputbox' fullWidth sx={{ m: 1 }} variant="outlined">
@@ -104,7 +108,7 @@ export default function Profile() {
                             type="text"
                             className='input'
                             placeholder='E-mail аддресс'
-                            onChange={(e) => { setEmail(e.target.value) }}
+                            // onChange={(e) => { setEmail(e.target.value) }}
                             value={email}
                             disabled={true}
                         />

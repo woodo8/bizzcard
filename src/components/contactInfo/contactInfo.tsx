@@ -23,6 +23,7 @@ export default function ContactInfo({ card, refetchCard }: any) {
   const [instagram, setinstagram] = useState<string>("");
   const [facebook, setfacebook] = useState<string>("");
 
+
   const [changeCard, result] = useEditCardMutation();
   const { data, isSuccess, isError, error, isLoading } = result;
 

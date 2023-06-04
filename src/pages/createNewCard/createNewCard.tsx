@@ -14,6 +14,7 @@ import { EditorState, ContentState, convertToRaw, convertFromRaw } from 'draft-j
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
 import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
+import { TypeAnimation } from "react-type-animation";
 
 // import "./editCard.css"
 import { useNavigate, useParams } from 'react-router';
@@ -146,7 +147,7 @@ export default function CreateNewCard() {
     const [mobile, setMobile] = useState<string>("");
     const [website, setWebsite] = useState<string>("");
     const [services, setServices] = useState<string>("")
-
+    const [qualities, setQualities] = useState<string>("")
 
     let StatesForContacts = {
         pageValue,
@@ -180,6 +181,7 @@ export default function CreateNewCard() {
         const contentStateJson = JSON.stringify(contentStateRaw);
         localStorage.setItem("draftContent", contentStateJson)
         localStorage.setItem("services", services)
+        localStorage.setItem("qualities", qualities)
         setValue(2)
     }
 
@@ -211,8 +213,10 @@ export default function CreateNewCard() {
 
             const contentStateJson = localStorage.getItem("draftContent") || "";
             const localServices = localStorage.getItem("services") || "";
+            const localQualities = localStorage.getItem("qualities") || "";
             contentStateJson && formData.append("draftContent", contentStateJson);
             localServices && formData.append("services", localServices);
+            localQualities && formData.append("qualities", localQualities);
             profileImg && profileImg.img && formData.append("profile_img", profileImg.img);
             backgroundImg && backgroundImg.img && formData.append("background_img", backgroundImg.img);
             newCard({ token: token, body: formData, id: globalUser.id })
@@ -293,6 +297,23 @@ export default function CreateNewCard() {
                                         value={services}
                                         id="services"
                                     ></textarea>
+                                    <h1 className='panelHeading'>Я - в трех словах</h1>
+                                    <h6>Опишите ваши (вашего бизнеса) качества 3 словами (быстрый, надежный, элегантный,)!</h6>
+                                    <div style={{ textAlign: "center", color: "#8D6736" }}>
+                                        <TypeAnimation
+                                            sequence={['быстрый', 900, 'надежный', 900, 'элегантный', 900]}
+                                            style={{ fontSize: '4em', margin: "20px 0 20px" }}
+                                            repeat={Infinity}
+                                        />
+                                    </div>
+                                    <textarea
+                                        onChange={(e) => setQualities(e.target.value)}
+                                        placeholder='быстрый, надежный, элегантный,'
+                                        className='serviceTextarea' name="qualities"
+                                        value={qualities}
+                                        id="qualities"
+                                    ></textarea>
+
                                     <Button onClick={saveDraft} className='submitBtn'>Сохранить изменения</Button>
                                 </StyledTabPanel>
                                 <StyledTabPanel value={2}>

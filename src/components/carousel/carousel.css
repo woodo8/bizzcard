@@ -1,5 +1,4 @@
-
-.carouselWrapper .heading{
+.carouselWrapper .heading {
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
@@ -8,16 +7,71 @@
     margin: 60px 0 30px;
 }
 
+.carouselWrapper .slide:hover {
+    position: relative;
+}
+
+.carouselWrapper .slide .popupBox {
+    position: absolute;
+    top: -100%;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    visibility: hidden;
+    transition: all 0.2s linear;
+}
+.carouselWrapper .slide .popupBox .title{
+    font-size: 24px;
+    font-weight: 700;
+    margin: 35px 0;
+    
+}
+.carouselWrapper .slide .popupBox .description_portfolio{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 35px;
+
+}
+.carouselWrapper .slide:hover .popupBox {
+    visibility: visible;
+    top: 5px;
+}
+
 .carousel-main {
     color: white;
     position: relative !important;
 }
 
 .horizontalSlider___281Ls.carousel__slider {
-    background-color: red;
     width: 90%;
     margin: auto;
     height: 502px;
+    position: relative !important;
+
+}
+
+.carouselWrapper .description {
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute !important;
+}
+
+.horizontalSlider___281Ls.carousel__slider:hover .carouselWrapper .description {
+    display: block;
+}
+
+.forEdit .horizontalSlider___281Ls.carousel__slider {
+    height: 350px !important;
 }
 
 .carousel__back-button,
@@ -44,24 +98,39 @@
     padding-right: 0;
     justify-content: end;
 }
-.carousel__slide{
+
+.carousel__slide {
     padding-bottom: 0 !important;
     height: 510px;
 }
-.carousel__dot-group{
+
+
+.carousel__slide img {
+    object-fit: contain;
+    object-position: top;
+}
+
+.forEdit .carousel__slide {
+    height: 360px;
+    padding-bottom: 0 !important;
+}
+
+.carousel__dot-group {
     text-align: center;
     margin-bottom: 60px;
 }
-.carousel__dot-group button{
+
+.carousel__dot-group button {
     width: 18px;
     height: 6px;
     border-radius: 2px;
     border: none;
     margin: 0 5px;
-    background-color:  #AAAAAA;
+    background-color: #AAAAAA;
     transition: all 0.1s linear;
 }
-.carousel__dot--selected{
+
+.carousel__dot--selected {
     background-color: green !important;
     width: 40px !important;
     background: var(--main);
@@ -73,7 +142,8 @@
     .horizontalSlider___281Ls.carousel__slider {
         height: 400px;
     }
-    .carousel__slide{
+
+    .carousel__slide {
         height: 410px;
     }
 }
@@ -85,7 +155,24 @@
         height: 200px;
         width: 85%;
     }
-    .carousel__slide{
+
+    .carousel__slide {
         height: 210px;
     }
+
+    .forEdit .horizontalSlider___281Ls.carousel__slider {
+        height: 200px !important;
+        width: 85%;
+    }
+
+    .forEdit .carousel__slide {
+        height: 210px !important;
+    }
+    .carouselWrapper .slide .popupBox{
+        position: fixed !important;
+        left: 0;
+        top: 0;
+        height: auto;
+    }
+    
 }

@@ -1,0 +1,26 @@
+/* .createPortfolio .input {
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    border-radius: 4px;
+    display: block;
+    width: 100% !important;
+    margin: 12px 0;
+} */
+.portfolioItem{
+    width: 100%;
+    padding: 20px;
+    border: 2px solid white;
+    margin: 15px 0;
+    
+    word-wrap: break-word;
+    overflow-x: hidden;
+}
+
+.portfolioItem img{
+    width: 100px !important;
+    display: block;
+    margin-bottom: 10px;
+}
+.createPortfolio .items{
+    margin-top: 40px;
+}

@@ -16,7 +16,7 @@ export default function OrderSuccess() {
             <div className="info">
                 <h2>Ваш заказ успешно зарегистрирован.</h2>
                 <p>Теперь вы можете создать свою первую визитную карточку.</p>
-                <a onClick={() => navigate("/signin")}>Начать</a>
+                <a onClick={() => navigate("/create_card/0/0")}>Начать</a>
             </div>
         </div>
     )

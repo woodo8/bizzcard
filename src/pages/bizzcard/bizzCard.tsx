@@ -20,7 +20,7 @@ import Telegramcard from '../../assets/images/telegramcard'
 import Facebookcard from '../../assets/images/facebookcard'
 import PhoneCard from '../../assets/images/phoneCard'
 import { useGetCardQuery } from '../../services/cardsApi'
-import { useLocation, useParams } from 'react-router'
+import { useLocation, useNavigate, useParams } from 'react-router'
 import { StateContext } from '../../context/useContext'
 import { uploadsImg } from '../../utils/uploadsImg'
 import { convertFromRaw } from 'draft-js';
@@ -31,17 +31,29 @@ import { Helmet } from "react-helmet";
 import BackgroundImg from "../../assets/images/profileBg.png"
 import ProfileDefault from '../../assets/images/profileDefault.png'
 import Loader from '../../components/loader/loader'
+import { TypeAnimation } from 'react-type-animation'
 
 export default function BizzCard() {
 
     const { id: id } = useParams();
     const { data: card, error, isLoading, isSuccess, isError, refetch } = useGetCardQuery(id);
+    const [value, setValue] = useState<number>()
 
     const { globalUser } = useContext(StateContext);
     const location = useLocation();
     useEffect(() => {
+        let localValue = localStorage.getItem("cardTabValue") || "0";
+        if(globalUser){
+            setValue(Number(localValue))
+        }else{
+            setValue(0);
+        }
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [])
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        setValue(newValue)
+        localStorage.setItem("cardTabValue", newValue.toString())
+    }
 
     return (
         <>
@@ -60,7 +72,11 @@ export default function BizzCard() {
                 card &&
                 <Grid container className='myProfile'>
                     <Grid className="wrapper" item xs={12}>
-                        <Tabs defaultValue={0}>
+                        <Tabs
+                            //@ts-ignore
+                            onChange={handleChange}
+                            value={value}
+                            defaultValue={0}>
                             {globalUser.id === card.owner &&
                                 <StyledTabsList>
                                     <StyledTab className='headingButtons'>Мой BizzCard</StyledTab>
@@ -71,13 +87,13 @@ export default function BizzCard() {
                                 <div className='wrapper-child'>
                                     <div style={
                                         card.background_img ? {
-                                            background: `url(${uploadsImg(card.background_img)})`
+                                            background: `url(${card.background_img})`
                                         } : {
                                             background: `url(${BackgroundImg})`
                                         }} className="sectionBg"></div>
                                     <div className='bg-black'>
                                         <div className="imgBox">
-                                            <img src={card.profile_img ? uploadsImg(card.profile_img) : ProfileDefault} alt="profileImg" />
+                                            <img src={card.profile_img ? card.profile_img : ProfileDefault} alt="profileImg" />
                                         </div>
                                         <Typography variant='h3' className='name'>{card.name}</Typography>
                                         <Typography variant='h5' className='profession'>{card.expertise}</Typography>
@@ -166,10 +182,21 @@ export default function BizzCard() {
                                         </Typography>
                                         {/* CONTACTS AND SERVICES */}
                                         <AccordionProfile card={card} />
+                                        <div style={{ textAlign: "center", color: "white", margin: "40px 0 20px", borderBottom: "2px solid white", paddingBottom: "15px" }}>
+                                            {card.qualities && <TypeAnimation
+                                                sequence={card.qualities.split(",").map((item: any) => item.trim())
+                                                    .filter((item: any) => item.replace(/\s/g, '').length > 0)
+                                                    .flatMap((item: any) => [item, 900])
+                                                }
+                                                style={{ fontSize: '6em', }}
+                                                repeat={Infinity}
+                                                className="typingAnimation"
+                                            />}
+                                        </div>
                                     </div>
 
                                     {/* MY CASES */}
-                                    {/* <Carousel /> */}
+                                    <Carousel />
 
                                     {/* FORM */}
                                     {/* <ProfileForm /> */}

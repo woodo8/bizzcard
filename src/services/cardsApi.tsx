@@ -25,6 +25,12 @@ export const cardApi = createApi({
                 method: "GET",
             })
         }),
+        getAllCards: builder.query({
+            query: () => ({
+                url: `/cards/get_all_cards/`,
+                method: "GET",
+            })
+        }),
         createNewCard: builder.mutation({
             query: (payload) => ({
                 headers: {
@@ -44,10 +50,42 @@ export const cardApi = createApi({
                 body: payload.body,
                 method: "PATCH",
             })
-        })
+        }),
+        createNewPortfolio: builder.mutation({
+            query: (payload) => ({
+                headers: {
+                    authorization: `Bearer ${payload.token}`,
+                },
+                url: `/portfolio/create_portfolio/${payload.id}`,
+                body: payload.body,
+                method: "POST",
+            })
+        }),
+        getAllPortfolios: builder.query({
+            query: (id) => ({
+                url: `/portfolio/get_portfolio/${id}`,
+                method: "GET",
+            })
+        }),
+        deletePortfolio: builder.mutation({
+            query: ({ id, token }) => ({
+                headers: {
+                    authorization: `Bearer ${token}`,
+                },
+                url: `/portfolio/remove_portfolio/${id}`,
+                method: "DELETE",
+            })
+        }),
     })
 });
 
 export const {
-    useGetCardQuery, useGetMyCardsQuery, useCreateNewCardMutation, useEditCardMutation
+    useGetCardQuery,
+    useGetMyCardsQuery,
+    useCreateNewCardMutation,
+    useEditCardMutation,
+    useGetAllCardsQuery,
+    useCreateNewPortfolioMutation,
+    useGetAllPortfoliosQuery,
+    useDeletePortfolioMutation
 } = cardApi;

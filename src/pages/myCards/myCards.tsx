@@ -3,7 +3,7 @@ import NavbarMain from '../../components/navbarMain/navbarMain'
 import Grid from '@mui/material/Grid';
 import "./myCards.css"
 import { Button, Skeleton, Typography } from '@mui/material';
-import { useGetMyCardsQuery } from '../../services/cardsApi';
+import { useGetAllCardsQuery, useGetMyCardsQuery } from '../../services/cardsApi';
 import { StateContext } from '../../context/useContext';
 import moment from 'moment';
 import { useNavigate } from 'react-router';
@@ -64,13 +64,13 @@ export default function MyCards() {
                             <div className="card-content">
                                 <div style={
                                     card.background_img ? {
-                                        background: `url(${uploadsImg(card.background_img)})`
+                                        background: `url(${card.background_img})`
                                     } : {
                                         background: `url(${BackgroundImg})`
                                     }} className="sectionBg"></div>
                                 <div className='bg-black'>
                                     <div className="imgBox">
-                                        <img src={card.profile_img ? uploadsImg(card.profile_img) : ProfileDefault} alt="profileImg" />
+                                        <img src={card.profile_img ? card.profile_img : ProfileDefault} alt="profileImg" />
                                     </div>
                                     <Typography variant='h3' className='name'>{card.name}</Typography>
                                     <Typography variant='h5' className='profession'>{card.expertise}</Typography>

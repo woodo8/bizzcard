@@ -14,7 +14,10 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
 import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
 import { useEditCardMutation, useGetCardQuery } from '../../services/cardsApi';
-import { uploadsImg } from '../../utils/uploadsImg';
+import { TypeAnimation } from "react-type-animation";
+import Carousel from '../../components/carousel/carousel';
+import CreatePortfolio from '../../components/createPortfolio/createPortfolio';
+
 
 export default function EditCard({ card, refetchCard }: any) {
 
@@ -23,21 +26,26 @@ export default function EditCard({ card, refetchCard }: any) {
   const { data, isSuccess, isError, error, isLoading } = result;
 
   const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty());
-  const [services, setServices] = useState<string>("")
+  const [services, setServices] = useState<string>("");
   const [bgImage, setBgImage] = useState<any>();
-  const [profileImg, setProfileImg] = useState<any>()
+  const [profileImg, setProfileImg] = useState<any>();
   const [value, setValue] = useState<number>(0);
+  const [qualities, setQualities] = useState<string>("");
+  const [showCaroExample, setshowCaroExample] = useState<boolean>(false)
+  const [showAdd, setshowAdd] = useState<boolean>(false)
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
+    localStorage.setItem("editcardTabValue", newValue.toString())
   };
 
   const initialize = () => {
-    setValue(4)
+    setValue(3)
   }
 
   const initializeStates = () => {
     card.services && setServices(card.services);
+    card.qualities && setQualities(card.qualities);
     card.draftContent && setEditorState(() => EditorState.push(
       editorState,
       convertFromRaw(JSON.parse(card.draftContent)),
@@ -48,6 +56,9 @@ export default function EditCard({ card, refetchCard }: any) {
   const windowSize = window.innerWidth;
   useEffect(() => {
     initializeStates();
+    let localValue = localStorage.getItem("editcardTabValue") || "0";
+    setValue(Number(localValue))
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [])
 
   useEffect(() => {
@@ -57,7 +68,7 @@ export default function EditCard({ card, refetchCard }: any) {
     // } else {
     //   enableScroll()
     // }
-    value === 4 ? enableScroll() : disableScroll()
+    value === 3 ? enableScroll() : disableScroll()
 
     if (windowSize > 769) {
       enableScroll()
@@ -99,6 +110,7 @@ export default function EditCard({ card, refetchCard }: any) {
     let formData = new FormData();
     formData.append("draftContent", contentStateJson);
     formData.append("services", services);
+    formData.append("qualities", qualities);
     await changeCard({ id: card._id, owner: card.owner, body: formData, token })
   }
   const saveImages = async (e: any) => {
@@ -108,7 +120,6 @@ export default function EditCard({ card, refetchCard }: any) {
     bgImage && bgImage.img && formData.append("background_img", bgImage.img);
     profileImg && profileImg.img && formData.append("profile_img", profileImg.img);
     if (bgImage && bgImage.img || profileImg && profileImg.img) {
-      
       await changeCard({ id: card._id, owner: card.owner, body: formData, token })
     } else {
       return
@@ -122,7 +133,7 @@ export default function EditCard({ card, refetchCard }: any) {
     }
     if (isSuccess) {
       alert("Card changed successfully");
-      window.location.reload();
+      // window.location.reload();
       // refetchCard();
     }
   }, [isSuccess, isError])
@@ -143,7 +154,12 @@ export default function EditCard({ card, refetchCard }: any) {
             <TabStyled>-Контактная информация</TabStyled>
             <TabStyled>-Контент</TabStyled>
             <TabStyled>-Внешность</TabStyled>
+
+            {/* !!!! Dont remove nor change the position of the line below. It is used to supply initial position of this page where none of the tabs are active */}
             <TabStyled className='mobileViewOnly v-hidden nullTab'></TabStyled>
+            {/* !!!! */}
+
+            <TabStyled>-Галерея</TabStyled>
           </TabsListStyled>
           <TabPanelStyled className='v-hidden mobileViewOnly nullTab' value={3}
           >
@@ -179,6 +195,23 @@ export default function EditCard({ card, refetchCard }: any) {
               value={services}
               id="services"
             ></textarea>
+            <h1 className='panelHeading'>Я - в трех словах</h1>
+            <h6>Опишите ваши (вашего бизнеса) качества 3 словами (быстрый, надежный, элегантный,)!</h6>
+            <div style={{ textAlign: "center", color: "#8D6736" }}>
+              <TypeAnimation
+                sequence={['быстрый', 900, 'надежный', 900, 'элегантный', 900]}
+                style={{ fontSize: '4em', margin: "20px 0 20px" }}
+                repeat={Infinity}
+              />
+            </div>
+            <textarea
+              onChange={(e) => setQualities(e.target.value)}
+              placeholder='быстрый, надежный, элегантный,'
+              className='serviceTextarea' name="qualities"
+              value={qualities}
+              id="qualities"
+            ></textarea>
+
             <Button onClick={saveDrafts} className='submitBtn'>Сохранить изменения</Button>
 
           </TabPanelStyled>
@@ -192,7 +225,7 @@ export default function EditCard({ card, refetchCard }: any) {
                     {bgImage ?
                       <img className='image' src={bgImage.preViews} alt=".." /> :
                       card.background_img ?
-                        <img className='image' src={uploadsImg(card.background_img)} alt=".." /> :
+                        <img className='image' src={card.background_img} alt=".." /> :
                         <div className="image"></div>}
                     <div>
                       <Typography variant='h6'>Фотография фона</Typography>
@@ -225,7 +258,7 @@ export default function EditCard({ card, refetchCard }: any) {
                     <Typography variant='h6'>Фотография фона</Typography>
                     {profileImg ?
                       <img className='img' src={profileImg.preViews} alt=".." /> :
-                      card.profile_img ? <img className='img' src={uploadsImg(card.profile_img)} alt=".." /> :
+                      card.profile_img ? <img className='img' src={card.profile_img} alt=".." /> :
                         <div className="img"></div>}
                   </div>
                   <Typography variant="h2" className=' d-flex align-center'>
@@ -253,9 +286,20 @@ export default function EditCard({ card, refetchCard }: any) {
             </Grid>
           </TabPanelStyled>
 
-          {/* !!!! Dont remove the line below. It is used to supply initial position of this page where none of the tabs are active */}
-          <TabPanelStyled className='v-hidden mobileViewOnly nullTab'  value={3}
-          >
+          {/* !!!! Dont remove nor change the position of the line below. It is used to supply initial position of this page where none of the tabs are active */}
+          <TabPanelStyled className='v-hidden mobileViewOnly nullTab' value={3}>
+          </TabPanelStyled>
+          <TabPanelStyled className='' value={4}>
+            <HighlightOffOutlinedIcon className='mobileViewOnly' onClick={initialize} color='primary' /><br />
+            <h1 className='panelHeading'>Галерея</h1>
+            <Typography onClick={() => setshowCaroExample(!showCaroExample)} variant='h6' style={{ textDecoration: "underline", cursor: "pointer" }}>
+              {showCaroExample ? "Закрыть пример" : "См. пример"}
+            </Typography>
+            {showCaroExample && < Carousel forEdit={true} />}
+            <Typography onClick={() => setshowAdd(!showAdd)} variant='h6' style={{ textDecoration: "underline", cursor: "pointer" }}>
+              {showAdd ? "Закрыть вкладку добавления" : "Добавить новое"}
+            </Typography>
+             <CreatePortfolio showAdd={showAdd} />
           </TabPanelStyled>
         </Tabs>
       </Grid>
@@ -330,6 +374,8 @@ const TabPanelStyled = styled(TabPanel)(
       z-index:4;
       height:100vh;
       overflow-y:scroll;
+      padding-bottom:250px !important;
+
     }
     `,
 );
