@@ -62,12 +62,23 @@ export default function AccordionProfile({ card }: any) {
                     <Typography className='content'>
                         {card.email}
                     </Typography>
+                    {card.websiteLink && <>
+                        <Typography className='tagName'>
+                            Вебсайт
+                        </Typography>
+                        <a href={card.websiteLink} target="_blank">
+                            <Typography className='content'>
+                                {card.websiteLink}
+                            </Typography>
+                        </a>
+                    </>
+                    }
                     {card.location &&
                         <>
                             <Typography className='tagName'>
                                 Адрес
                             </Typography>
-                            <Typography className='content'>
+                            <Typography className='content underline'>
                                 {card.location}
                             </Typography>
                         </>

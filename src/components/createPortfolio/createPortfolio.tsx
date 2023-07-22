@@ -12,7 +12,6 @@ export default function CreatePortfolio({ showAdd }: any) {
     const [url, setUrl] = useState<string>("https://");
     const [description, setDescription] = useState<string>("");
     const [image, setImage] = useState<any>();
-
     const [portfolioData, setPortfolioData] = useState<any>([])
 
     const [newPortfolio, result] = useCreateNewPortfolioMutation();
@@ -40,7 +39,7 @@ export default function CreatePortfolio({ showAdd }: any) {
             if (url && url !== "https://" && !isValidUrl(url)) {
                 return alert("Please add valid url!")
             }
-            if (!image) {
+            if (!image || !image.img) {
                 return alert("You have to add image")
             }
             const token = localStorage.getItem("token")
@@ -66,6 +65,9 @@ export default function CreatePortfolio({ showAdd }: any) {
         }
         if (isSuccess) {
             alert("Portfolio added successfully!");
+            setName("");
+            setUrl("");
+            setDescription("");
             (async function () { await refetch() })();
             // refetch();
         }
@@ -138,7 +140,7 @@ export default function CreatePortfolio({ showAdd }: any) {
                     <div className='bgImageBox' >
                         <label htmlFor='bgImg' >
                             <div className="imageBox d-flex align-center">
-                                {image ? <img className='image' src={image.preViews} alt=".." /> : <div className="image"></div>}
+                                {image && image.img ? <img className='image' src={image.preViews} alt=".." /> : <div className="image"></div>}
                                 <div>
                                     <Typography variant='h6'>Фотография фона</Typography>
                                     <Typography variant='h5'>Файл Ещё не выбран </Typography>
@@ -175,7 +177,6 @@ export default function CreatePortfolio({ showAdd }: any) {
 
             <div className='items'>
                 <h1 className='panelHeading'>Существующие элементы</h1>
-
                 {
                     portfolioData.length !== 0 && portfolioData.map((item: any, index: any) => (
                         <div key={index} className="portfolioItem">

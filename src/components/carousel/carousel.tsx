@@ -29,6 +29,7 @@ export default function Carousel(props: any) {
             alert("something went wrong. Please try again later!");
         }
         if (isSuccessGet) {
+            console.log(dataGet)
             setPortfolioData(dataGet)
             console.log(portfolioData)
             // alert("Portfolio added successfully!");
@@ -39,57 +40,79 @@ export default function Carousel(props: any) {
     const [playing, setPlaying] = useState<boolean>(true)
     return (
         <div className="carouselWrapper">
-            <Typography className='heading' variant='h5'>
-                {props.forEdit ? "Example" : "Мои кейсы"}
+            {
+                dataGet && dataGet.length !== 0 &&
+                <>
+                    <Typography className='heading' variant='h5'>
+                        {props.forEdit ? "Example" : "Мои кейсы"}
 
-            </Typography>
+                    </Typography>
 
-            <div className={`carousel-main ${props.forEdit ? "forEdit" : ""}`}>
-                {
-                    portfolioData &&
+                    <div className={`carousel-main ${props.forEdit ? "forEdit" : ""}`}>
 
-                    <CarouselProvider
-                        naturalSlideWidth={100}
-                        naturalSlideHeight={100}
-                        totalSlides={portfolioData.length}
-                        infinite={true}
-                        isPlaying={false}
-                        interval={3000}
-                        lockOnWindowScroll={true}
-                    >
-                        <Slider>
-                            {
-                                portfolioData && portfolioData.length !== 0 && portfolioData.map((item: any, index: any) => (
-                                    <Slide onClick={handleClickOpen} className="slide" onMouseOver={() => setPlaying(false)} onMouseLeave={() => setPlaying(true)} index={index}>
-                                        <Image hasMasterSpinner={true} src={item.image} />
-                                        {/* <div className="popupBox">
-                                            <Typography className="title">
-                                                {item.name}
-                                            </Typography>
-                                            {
-                                                // item.description &&
-                                                <Typography className="description_portfolio">
+                        <CarouselProvider
+                            naturalSlideWidth={100}
+                            naturalSlideHeight={100}
+                            totalSlides={dataGet.length}
+                            infinite={true}
+                            isPlaying={false}
+                            interval={3000}
+                            lockOnWindowScroll={true}
+                        >
+                            {!props.forEdit ?
+                                <Slider>
+                                    {
+                                        dataGet && dataGet.length !== 0 && dataGet.map((item: any, index: any) => (
+                                            <Slide onClick={handleClickOpen} className="slide" onMouseOver={() => setPlaying(false)} onMouseLeave={() => setPlaying(true)} index={index}>
+                                                <Image hasMasterSpinner={true} src={item.image} />
+                                                <div className="popupBox">
+                                                    <div>
+                                                        <Typography className="title">
+                                                            {item.name}
+                                                        </Typography>
+                                                        {
+                                                            item.description &&
+                                                            <Typography className="description_portfolio">
+                                                                {item.description}
+                                                            </Typography>
+                                                        }
 
-                                                    {item.description}
-                                                </Typography>
-                                            }
-                                        </div> */}
-                                        {/* <PortfolioContent
+                                                        {
+                                                            item.url &&
+                                                            <a className='portfolioLink' href={item.url} target="_blank">Check on the website</a>
+                                                        }
+                                                    </div>
+                                                </div>
+                                                {/* <PortfolioContent
                                             open={open}
                                             onClose={handleClose}
                                         /> */}
 
+                                            </Slide>
+                                        ))
+                                    }
+
+                                </Slider> :
+                                <Slider>
+                                    <Slide onClick={handleClickOpen} className="slide" onMouseOver={() => setPlaying(false)} onMouseLeave={() => setPlaying(true)} index={0}>
+                                        <Image hasMasterSpinner={true} src={Case} />
                                     </Slide>
-                                ))
+                                    <Slide onClick={handleClickOpen} className="slide" onMouseOver={() => setPlaying(false)} onMouseLeave={() => setPlaying(true)} index={1}>
+                                        <Image hasMasterSpinner={true} src={Case} />
+                                    </Slide>
+                                    <Slide onClick={handleClickOpen} className="slide" onMouseOver={() => setPlaying(false)} onMouseLeave={() => setPlaying(true)} index={2}>
+                                        <Image hasMasterSpinner={true} src={Case} />
+                                    </Slide>
+                                </Slider>
                             }
 
-                        </Slider>
-                        <ButtonBack><ArrowBackIosNewIcon /></ButtonBack>
-                        <ButtonNext><ArrowForwardIosIcon /></ButtonNext>
-                        <DotGroup />
-                    </CarouselProvider>
-                }
-            </div>
+                            <ButtonBack><ArrowBackIosNewIcon /></ButtonBack>
+                            <ButtonNext><ArrowForwardIosIcon /></ButtonNext>
+                            <DotGroup />
+                        </CarouselProvider>
+
+                    </div>
+                </>}
         </div >
     )
 }

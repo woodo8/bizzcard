@@ -36,6 +36,7 @@ import { TypeAnimation } from 'react-type-animation'
 export default function BizzCard() {
 
     const { id: id } = useParams();
+    const navigate = useNavigate();
     const { data: card, error, isLoading, isSuccess, isError, refetch } = useGetCardQuery(id);
     const [value, setValue] = useState<number>()
 
@@ -43,17 +44,20 @@ export default function BizzCard() {
     const location = useLocation();
     useEffect(() => {
         let localValue = localStorage.getItem("cardTabValue") || "0";
-        if(globalUser){
+        if (globalUser) {
             setValue(Number(localValue))
-        }else{
+        } else {
             setValue(0);
         }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [])
+        // window.scrollTo({ top: 0, behavior: 'smooth' });
+        console.log(card)
+    }, [isLoading])
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue)
         localStorage.setItem("cardTabValue", newValue.toString())
     }
+
+
 
     return (
         <>
@@ -66,11 +70,11 @@ export default function BizzCard() {
                     <meta name="og:keywords" content={`${card.name}, ${card.expertise}`} data-react-helmet="true" />
                 </Helmet>
             }
-            <NavbarMain />
+            {card && globalUser.id === card.owner && <NavbarMain />}
             <Loader className={isLoading ? "active" : "disap"} />
             {
                 card &&
-                <Grid container className='myProfile'>
+                <Grid container className='myProfile bizzcard'>
                     <Grid className="wrapper" item xs={12}>
                         <Tabs
                             //@ts-ignore
@@ -261,7 +265,10 @@ export default function BizzCard() {
                     </Grid>
                 </Grid>
             }
-            <Footer />
+            {card && globalUser.id === card.owner ? <Footer /> :
+
+                <Typography className="text-center link-text">Curious? <span onClick={() => navigate("/")}>Create your own bizzCard</span></Typography>
+            }
         </>
     )
 }

@@ -292,10 +292,10 @@ export default function EditCard({ card, refetchCard }: any) {
           <TabPanelStyled className='' value={4}>
             <HighlightOffOutlinedIcon className='mobileViewOnly' onClick={initialize} color='primary' /><br />
             <h1 className='panelHeading'>Галерея</h1>
-            <Typography onClick={() => setshowCaroExample(!showCaroExample)} variant='h6' style={{ textDecoration: "underline", cursor: "pointer" }}>
+            {/* <Typography onClick={() => setshowCaroExample(!showCaroExample)} variant='h6' style={{ textDecoration: "underline", cursor: "pointer" }}>
               {showCaroExample ? "Закрыть пример" : "См. пример"}
             </Typography>
-            {showCaroExample && < Carousel forEdit={true} />}
+            {showCaroExample && < Carousel forEdit={true} />} */}
             <Typography onClick={() => setshowAdd(!showAdd)} variant='h6' style={{ textDecoration: "underline", cursor: "pointer" }}>
               {showAdd ? "Закрыть вкладку добавления" : "Добавить новое"}
             </Typography>

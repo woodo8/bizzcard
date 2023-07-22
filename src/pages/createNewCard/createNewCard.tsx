@@ -208,9 +208,9 @@ export default function CreateNewCard() {
             contactInfos.telegram && formData.append("telegram", contactInfos.telegram);
             contactInfos.facebook && formData.append("facebook", contactInfos.facebook);
             contactInfos.linkedin && formData.append("linkedin", contactInfos.linkedin);
+            contactInfos.instagram && formData.append("instagram", contactInfos.instagram);
             contactInfos.startTime && formData.append("timeFrom", contactInfos.startTime);
-            contactInfos.emdTime && formData.append("timeUntil", contactInfos.endTime);
-
+            contactInfos.endTime && formData.append("timeUntil", contactInfos.endTime);
             const contentStateJson = localStorage.getItem("draftContent") || "";
             const localServices = localStorage.getItem("services") || "";
             const localQualities = localStorage.getItem("qualities") || "";

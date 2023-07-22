@@ -18,6 +18,7 @@ import { useSigninMutation } from '../../services/authApi';
 import { validateEmail } from '../../utils/validateEmail';
 import CircularProgress from '@mui/material/CircularProgress';
 import { StateContext } from '../../context/useContext';
+import CryptoJS from "crypto-js"
 
 export default function Signin() {
 
@@ -39,6 +40,8 @@ export default function Signin() {
     // Usestates to store input values
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [rememberCheckbox, setRememberCheckbox] = useState(false)
+
 
     // UseStates to handle errors
     const [emailInvalid, setEmailInvalid] = useState<string>("");
@@ -76,7 +79,15 @@ export default function Signin() {
     }
 
     useEffect(() => {
+
+        let loginData = JSON.parse(localStorage.getItem("loginData") || "{}")
+        if (Object.keys(loginData).length) {
+            setRememberCheckbox(true)
+            setEmail(loginData.email);
+            setPassword(decryptData(loginData.password))
+        }
         if (isError && 'data' in error) {
+            console.log(error)
             if (error.data === "User does not exist") {
                 setEmailInvalid("Пользователь не существует!");
             } else if (error.data === "Invalid credentials") {
@@ -94,16 +105,33 @@ export default function Signin() {
         if (isSuccess) {
             localStorage.setItem("user", JSON.stringify(data.result));
             // Update the user in Context
-            setGlobalUser(data.result)
+            setGlobalUser(data.result);
             localStorage.setItem("token", data.token);
+            let loginData1 = { email: email, password: encryptData(password) };
+            rememberCheckbox ? localStorage.setItem("loginData", JSON.stringify(loginData1)) : localStorage.removeItem("loginData");
             navigate(data.result.subscription === null
                 ?
                 "/subscribe_premium"
                 :
-                "/my_cards")
+                "/my_cards");
         }
 
-    }, [result])
+    }, [result]);
+
+    const encryptData = (arg: string) => {
+        const data = CryptoJS.AES.encrypt(
+            JSON.stringify(arg),
+            "bizzkey"
+        ).toString();
+
+        return data;
+    };
+    const decryptData = (arg: string) => {
+        const bytes = CryptoJS.AES.decrypt(arg, "bizzkey");
+        const data = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        return data;
+    };
+
 
     return (
         <Grid container className='signin d-block'>
@@ -132,6 +160,7 @@ export default function Signin() {
                         className='input'
                         placeholder='E-mail  аддресс'
                         onChange={(e) => setEmail(e.target.value)}
+                        value={email}
                         startAdornment={
                             <InputAdornment position="start">
                                 <EmailGrey />
@@ -148,6 +177,7 @@ export default function Signin() {
                         className='input'
                         placeholder='Установите пароль'
                         onChange={(e) => setPassword(e.target.value)}
+                        value={password}
                         startAdornment={
                             <InputAdornment position="start">
                                 <LockGrey />
@@ -182,7 +212,12 @@ export default function Signin() {
                 <div className="d-flex align-center justify-between">
                     <FormControlLabel
                         className='checkboxWrapper'
-                        control={<Checkbox />}
+                        control={<Checkbox
+                            checked={rememberCheckbox}
+                            onChange={() => {
+                                setRememberCheckbox(!rememberCheckbox)
+                            }}
+                        />}
                         label={
                             <Typography>Запомни меня</Typography>
                         }

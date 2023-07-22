@@ -9,13 +9,17 @@
     padding: 0px 100px;
 }
 
+.myProfile .bizzcard {
+    padding-top: 0 !important;
+}
+
 .myProfile .sectionBg {
     height: 460px;
     width: 100%;
     background-size: cover !important;
     background-position: center !important;
     background-position: center !important;
-    background-attachment: fixed !important;
+    /* background-attachment: fixed !important; */
 }
 
 .myProfile .wrapper {
@@ -266,7 +270,20 @@
     color: #303030;
 }
 
+.link-text {
+    margin: 40px 0 !important;
+    padding: 12px 0 !important;
+    text-align: center;
+    width: 100%;
+    border-top: 2px solid gray !important;
+}
 
+.link-text span {
+    display: block;
+    text-decoration: underline !important;
+    color: blue !important;
+    cursor: pointer;
+}
 
 
 @media screen and (max-width:1300px) {
@@ -418,7 +435,8 @@
     .myProfile .share .item .iconBox+p {
         font-size: 16px;
     }
-    .myProfile .typingAnimation{
+
+    .myProfile .typingAnimation {
         font-size: 3em;
     }
 }
