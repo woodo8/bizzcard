@@ -92,6 +92,18 @@ input[type="radio"] {
   -webkit-appearance: radio;
 }
 
+.upButton{
+  border-radius: 8px;
+  padding: 10px;
+  display: block;
+  background: var(--main) !important;
+  color: white;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width:900px) {
   .tabViewOnly {
     display: block !important;

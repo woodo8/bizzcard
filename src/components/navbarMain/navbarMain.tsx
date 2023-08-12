@@ -115,7 +115,7 @@ export default function NavbarMain() {
                     }
                 </li>
                 <li>
-                    <Button onClick={() => navigate("/subscribe_premium")} className="premium-btn">
+                    <Button onClick={() => navigate("/subscribe_free")} className="premium-btn">
                         Premium
                     </Button>
                 </li>

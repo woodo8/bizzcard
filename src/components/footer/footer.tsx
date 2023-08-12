@@ -8,6 +8,7 @@ import Email from '../../assets/images/email';
 import Web from '../../assets/images/web';
 import Instagram from '../../assets/images/instagram';
 import Facebook from '../../assets/images/facebook';
+import { useNavigate } from 'react-router';
 
 
 const BootstrapButton = styled(Button)({
@@ -26,12 +27,13 @@ const BootstrapButton = styled(Button)({
 });
 
 export default function Footer() {
+    const navigate = useNavigate();
     return (
         <section className='footer'>
             <div className="content">
                 <Logo />
                 <Typography> Возможность самовыражения через визитные карточки, которой раньше просто не существовало. Вы можете наглядно продемонстрировать вашу работу, добавив фотографии, видео и ссылки. </Typography>
-                <BootstrapButton>Начать бесплатно</BootstrapButton>
+                <BootstrapButton onClick={() => navigate("/subscribe_free")}>Начать бесплатно</BootstrapButton>
             </div>
 
             <div className="subs">
@@ -48,7 +50,7 @@ export default function Footer() {
                 <Typography variant='h5'>Контактные инфо</Typography>
                 <ul>
                     <li><a href="tel:+998991234567" className='d-flex align-center'> <Call /> <span>+998 99 123 45 67</span></a></li>
-                    <li><a href="mailto: info@universalbank.uz" className='d-flex align-center'> <Email /> <span>info@universalbank.uz</span></a></li>
+                    <li><a href="mailto: bizzcards@gmail.com" className='d-flex align-center'> <Email /> <span>bizzcards@gmail.com</span></a></li>
                     <li><a href="https://bizzcard.uz/" className='d-flex align-center'> <Web /> <span>bizzcard.uz</span></a></li>
                 </ul>
             </div>

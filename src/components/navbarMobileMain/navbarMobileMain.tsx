@@ -74,7 +74,7 @@ export default function NavbarMobileMain(props: propsTypes) {
                     }
                 </li>
                 <li onClick={closeMenu} >
-                    <Button onClick={() => navigate("/subscribe_premium")} className="premium-btnMobile">
+                    <Button onClick={() => navigate("/subscribe_free")} className="premium-btnMobile">
                         Premium
                     </Button>
                 </li>

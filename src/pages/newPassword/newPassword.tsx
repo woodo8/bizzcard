@@ -99,8 +99,6 @@ export default function NewPassword() {
                 <Grid item xs={12} sm={7} md={6} lg={5} className="wrapper d-block">
                     <Typography className='heading' variant='h4'>Новый пароль</Typography>
                     <Typography className='description'> Пожалуйста, введите новый пароль и подтвердите его!</Typography>
-                    {password}
-                    {password1}
                     <FormControl className="inputbox" fullWidth sx={{ m: 1 }} variant="outlined">
                         <OutlinedInput
                             id="outlined-adornment-password"

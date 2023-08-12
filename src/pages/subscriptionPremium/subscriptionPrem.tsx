@@ -1,14 +1,21 @@
 import { Button, Grid, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SidebarSubscription from '../../components/sidebarSubscription/sidebarSubscription'
 import Logo_original from '../../assets/images/gold 1.png'
 import TickCircle from '../../assets/images/tick-circle'
 import "./subscriptionPrem.css"
 import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded';
+import { useNavigate } from 'react-router'
 
 export default function SubscriptionPrem() {
 
     const [menuOpen, setMenuOpen] = useState<boolean>(true);
+    const navigate = useNavigate();
+    useEffect(() => {
+        let confirm = window.confirm("Currently premium subscription is not avaliable!");
+        confirm ? navigate(-1) : navigate(-1);
+    }, [])
+
 
     return (
         <Grid container className='subscriptionPrem'>
@@ -17,7 +24,7 @@ export default function SubscriptionPrem() {
                 <Grid container className={`wrapper ${!menuOpen && "disap"}`}>
                     <Grid item xs={12} md={7}>
                         <div className="heading premium">
-                            <HighlightOffRoundedIcon onClick={()=>setMenuOpen(false)} className='closeIcon tabViewOnly' />
+                            <HighlightOffRoundedIcon onClick={() => setMenuOpen(false)} className='closeIcon tabViewOnly' />
                             <img src={Logo_original} alt="logo" />
                             <div className="preBox">Premium</div>
                         </div>
@@ -109,7 +116,7 @@ export default function SubscriptionPrem() {
                         <Button className='prem'>
                             Оформить заказ
                         </Button>
-                        <Button className='cancel'>
+                        <Button onClick={() => navigate(-1)} className='cancel'>
                             Нет, спасибо
                         </Button>
                     </Grid>

@@ -67,7 +67,7 @@ function App() {
       <div className="App">
         <Loader className={loading ? "active" : "disap"} />
         <ScrollToTop easing='easeOutQuint' duration={1000} showUnder={160}>
-          <span>UP</span>
+          <span className='upButton'>UP</span>
         </ScrollToTop>
         <Routes>
           {/* <Route

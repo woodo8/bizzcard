@@ -111,7 +111,7 @@ export default function Signin() {
             rememberCheckbox ? localStorage.setItem("loginData", JSON.stringify(loginData1)) : localStorage.removeItem("loginData");
             navigate(data.result.subscription === null
                 ?
-                "/subscribe_premium"
+                "/subscribe_free"
                 :
                 "/my_cards");
         }

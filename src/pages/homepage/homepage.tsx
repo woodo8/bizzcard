@@ -17,6 +17,7 @@ import Pro133 from "../../assets/images/13 Pro - 3.jpg"
 import Pro134 from "../../assets/images/13 Pro - 4.jpg"
 import AccordionHome from '../../components/accordionHome/accordionHome'
 import Footer from '../../components/footer/footer'
+import { useNavigate } from 'react-router'
 
 export default function Homepage() {
   const [checked, setChecked] = useState<boolean>(false);
@@ -27,6 +28,7 @@ export default function Homepage() {
     }, 300);
   }, [])
 
+  const navigate = useNavigate();
   return (
     <div className='homepage'>
       <NavbarMain />
@@ -186,8 +188,8 @@ export default function Homepage() {
             </div>
           </div>
           <div className="buttons d-flex align-center justify-center">
-            <Button className="start ">Начать бесплатно</Button>
-            <Button className="premium">Попробовать Premium</Button>
+            <Button className="start" onClick={() => navigate("/subscribe_free")}>Начать бесплатно</Button>
+            <Button className="premium" onClick={() => navigate("/subscribe_premium")}>Попробовать Premium</Button>
           </div>
         </div>
       </section>

@@ -54,7 +54,8 @@ export default function SidebarSubscription({ setFreeMenuOpen, setPremMenuOpen }
                 <div className='shadowBox'>
                     <Grid container className='containerSub' >
                         <Grid onClick={() => {
-                            navigate("/subscribe_premium")
+                            alert("Currently premium subscription is not available!")
+                            // navigate("/subscribe_premium")
                             location.pathname.includes("subscribe_premium") && setPremMenuOpen(true)
                         }} item className='item' xs={12}>
                             <div className="d-flex align-center justify-center">

@@ -142,7 +142,7 @@ export default function SubscriptionFree() {
                         <Button onClick={handleOrder} className='simple'>
                             Оформить заказ
                         </Button>
-                        <Button className='cancel'>
+                        <Button onClick={()=>navigate(-1)} className='cancel'>
                             Нет, спасибо
                         </Button>
                     </Grid>
