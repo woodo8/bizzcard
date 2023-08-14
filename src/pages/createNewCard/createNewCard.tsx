@@ -89,21 +89,21 @@ export default function CreateNewCard() {
         setValue(Number(pageValue));
         console.log(typeof pageValue);
     }, [])
-    useLayoutEffect(() => {
-        setTimeout(() => {
-            // @ts-ignore
-            let storageInfos = JSON.parse(localStorage.getItem("contactInfos")) || {};
-            if (Object.keys(storageInfos).length !== 0) {
-                let continuee = window.confirm("Do you want to continue with saved data?");
-                if (!continuee) {
-                    localStorage.removeItem("contactInfos");
-                    localStorage.removeItem("draftContent");
-                    localStorage.removeItem("services");
-                    window.location.reload()
-                }
-            }
-        }, 2000);
-    }, [])
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         // @ts-ignore
+    //         let storageInfos = JSON.parse(localStorage.getItem("contactInfos")) || {};
+    //         if (Object.keys(storageInfos).length !== 0) {
+    //             let continuee = window.confirm("Do you want to continue with saved data?");
+    //             if (!continuee) {
+    //                 localStorage.removeItem("contactInfos");
+    //                 localStorage.removeItem("draftContent");
+    //                 localStorage.removeItem("services");
+    //                 window.location.reload()
+    //             }
+    //         }
+    //     }, 2000);
+    // }, [])
 
     function disableScroll() {
         // Get the current page scroll position in the vertical direction

@@ -59,6 +59,7 @@ export default function ContactInfoCreate(props: any) {
                 setdisableChanges(true)
                 navigate(`/create_card/0/0`);
             } else {
+                console.log("error")
                 setdisableChanges(false)
 
             }

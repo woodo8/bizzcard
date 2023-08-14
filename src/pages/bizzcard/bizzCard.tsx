@@ -32,6 +32,7 @@ import BackgroundImg from "../../assets/images/profileBg.png"
 import ProfileDefault from '../../assets/images/profileDefault.png'
 import Loader from '../../components/loader/loader'
 import { TypeAnimation } from 'react-type-animation'
+import { Reveal } from '../../reveal'
 
 export default function BizzCard() {
 
@@ -73,8 +74,8 @@ export default function BizzCard() {
             {card && globalUser.id === card.owner && <NavbarMain />}
             <Loader className={isLoading ? "active" : "disap"} />
             {
-                card &&
-                <Grid container className='myProfile bizzcard'>
+                card && !isLoading &&
+                < Grid container className='myProfile bizzcard'>
                     <Grid className="wrapper" item xs={12}>
                         <Tabs
                             //@ts-ignore
@@ -99,36 +100,52 @@ export default function BizzCard() {
                                         <div className="imgBox">
                                             <img src={card.profile_img ? card.profile_img : ProfileDefault} alt="profileImg" />
                                         </div>
-                                        <Typography variant='h3' className='name'>{card.name}</Typography>
-                                        <Typography variant='h5' className='profession'>{card.expertise}</Typography>
+                                        <Reveal width='100%'>
+                                            <Typography variant='h3' className='name'>{card.name}</Typography>
+                                        </Reveal>
+                                        <Reveal width='100%'>
+                                            <Typography variant='h5' className='profession'>{card.expertise}</Typography>
+                                        </Reveal>
 
                                         {/* MEDIA PART */}
                                         <ul className='media d-flex justify-center align-center'>
                                             {card.location &&
                                                 <li>
                                                     <a target="_blank" href={`http://maps.google.com/maps?q=${card.location}`}>
-                                                        <div className="circle">
-                                                            <Car />
-                                                        </div>
-                                                        <Typography>Lokatsiya</Typography>
+                                                        <Reveal>
+                                                            <div className="circle">
+                                                                <Car />
+                                                            </div>
+                                                        </Reveal>
+                                                        <Reveal>
+                                                            <Typography>Lokatsiya</Typography>
+                                                        </Reveal>
                                                     </a>
                                                 </li>}
                                             {card.instagram &&
                                                 < li >
                                                     <a target="_blank" href={card.instagram}>
-                                                        <div className="circle">
-                                                            <Sms />
-                                                        </div>
-                                                        <Typography>Instagram</Typography>
+                                                        <Reveal>
+                                                            <div className="circle">
+                                                                <Sms />
+                                                            </div>
+                                                        </Reveal>
+                                                        <Reveal>
+                                                            <Typography>Instagram</Typography>
+                                                        </Reveal>
                                                     </a>
                                                 </li>}
                                             {card.linkedin &&
                                                 <li>
                                                     <a target="_blank" href={card.linkedin}>
-                                                        <div className="circle">
-                                                            <Linkedin />
-                                                        </div>
-                                                        <Typography>Linkedin</Typography>
+                                                        <Reveal>
+                                                            <div className="circle">
+                                                                <Linkedin />
+                                                            </div>
+                                                        </Reveal>
+                                                        <Reveal>
+                                                            <Typography>Linkedin</Typography>
+                                                        </Reveal>
                                                     </a>
                                                 </li>
                                             }
@@ -136,38 +153,56 @@ export default function BizzCard() {
                                                 <li>
                                                     <a href={`sms:+${card.mobile}`}>
 
-                                                        <div className="circle">
-                                                            <Sms />
-                                                        </div>
-                                                        <Typography>Sms</Typography>
+                                                        <Reveal>
+                                                            <div className="circle">
+                                                                <Sms />
+                                                            </div>
+                                                        </Reveal>
+                                                        <Reveal>
+                                                            <Typography>Sms</Typography>
+                                                        </Reveal>
                                                     </a>
                                                 </li>}
                                             {card.facebook &&
                                                 <li>
                                                     <a target="_blank" href={card.facebook}>
-                                                        <div className="circle">
-                                                            <Facebookcard />
-                                                        </div>
-                                                        <Typography>Facebook</Typography>
+                                                        <Reveal>
+
+                                                            <div className="circle">
+                                                                <Facebookcard />
+                                                            </div>
+                                                        </Reveal>
+                                                        <Reveal>
+                                                            <Typography>Facebook</Typography>
+                                                        </Reveal>
                                                     </a>
                                                 </li>
                                             }
                                             {card.telegram &&
                                                 <li>
                                                     <a target="_blank" href={card.telegram}>
-                                                        <div className="circle">
-                                                            <Telegramcard />
-                                                        </div>
-                                                        <Typography>Telegram</Typography>
+                                                        <Reveal>
+
+                                                            <div className="circle">
+                                                                <Telegramcard />
+                                                            </div>
+                                                        </Reveal>
+                                                        <Reveal>
+                                                            <Typography>Telegram</Typography>
+                                                        </Reveal>
                                                     </a>
                                                 </li>}
                                             {card.mobile &&
                                                 <li>
                                                     <a href={`tel:${card.mobile}`}>
-                                                        <div className="circle">
-                                                            <PhoneCard />
-                                                        </div>
-                                                        <Typography>Telefon</Typography>
+                                                        <Reveal>
+                                                            <div className="circle">
+                                                                <PhoneCard />
+                                                            </div>
+                                                        </Reveal>
+                                                        <Reveal>
+                                                            <Typography>Telefon</Typography>
+                                                        </Reveal>
                                                     </a>
                                                 </li>
                                             }
@@ -175,15 +210,20 @@ export default function BizzCard() {
                                         {/* <Button className='saveProfile'>
                                             Сохранить профиль
                                         </Button> */}
-                                        <Typography style={{ marginTop: "20px" }} className='aboutMe' variant="h5">
-                                            Коротко обо мне
-                                        </Typography>
+                                        <Reveal width='100%'>
+                                            <Typography style={{ marginTop: "20px" }} className='aboutMe' variant="h5">
+                                                Коротко обо мне
+                                            </Typography>
+                                        </Reveal>
+                                        <Reveal width='100%'>
 
-                                        <Typography className='description'>
-                                            {card.draftContent &&
-                                                <div dangerouslySetInnerHTML={{ __html: stateToHTML(convertFromRaw(JSON.parse(card.draftContent))) }}></div>
-                                            }
-                                        </Typography>
+                                            <Typography className='description'>
+                                                {card.draftContent &&
+                                                    <div dangerouslySetInnerHTML={{ __html: stateToHTML(convertFromRaw(JSON.parse(card.draftContent))) }}></div>
+                                                }
+                                            </Typography>
+                                        </Reveal>
+
                                         {/* CONTACTS AND SERVICES */}
                                         <AccordionProfile card={card} />
                                         <div style={{ textAlign: "center", color: "white", margin: "40px 0 20px", borderBottom: "2px solid white", paddingBottom: "15px" }}>
@@ -265,9 +305,10 @@ export default function BizzCard() {
                     </Grid>
                 </Grid>
             }
-            {card && globalUser.id === card.owner ? <Footer /> :
+            {
+                card && globalUser.id === card.owner ? <Footer /> :
 
-                <Typography className="text-center link-text">Curious? <span onClick={() => navigate("/")}>Create your own bizzCard</span></Typography>
+                    <Typography className="text-center link-text">Curious? <span onClick={() => navigate("/")}>Create your own bizzCard</span></Typography>
             }
         </>
     )

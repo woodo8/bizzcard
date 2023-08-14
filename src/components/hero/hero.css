@@ -48,17 +48,18 @@
 @media screen and (max-width:769px) {
     .heroWrapper {
         height: 90vh;
+        text-align: center;
     }
 
     .hero {
         padding: 20px 30px !important;
-        justify-content: start;
+        justify-content: center;
     }
 
     .headerHero {
         font-size: 24px !important;
         width: 100%;
-        margin-bottom: 20vh !important;
+        /* margin-bottom: 20vh !important; */
     }
     .typographyhero {
         font-size: 16px !important;
@@ -68,6 +69,8 @@
     .buttonHero {
         font-size: 12px !important;
         padding: 12px 22px !important;
+        margin-right: auto !important;
+        margin-left: auto !important;
     }
 
 }

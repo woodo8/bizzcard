@@ -111,7 +111,7 @@ const Homepage = () => {
                   Используйте функции вложения электронной почты, отображения маршрута и QR-сканера вместе со всеми простыми функциями и многократно повышайте эффективность
                 </Typography>
 
-                <Button className="premium-btn">
+                <Button onClick={()=>navigate("/subscribe_premium")} className="premium-btn">
                   Premium
                 </Button>
               </div>
@@ -195,7 +195,7 @@ const Homepage = () => {
               <Reveal width='100%'>
                 <Typography className="step" variant='h5'>Создайте ваш BizzCard</Typography>
               </Reveal>
-              <Reveal>
+              <Reveal width='100%'>
                 <Typography className="duration">Ровно за 2 минуты - нажмите здесь</Typography>
               </Reveal>
             </div>
@@ -235,14 +235,12 @@ const Homepage = () => {
               </Reveal>
             </div>
           </div>
-          <div className="buttons d-flex align-center justify-center">
-            <Reveal>
+          <Reveal width="100%">
+            <div className="buttons d-flex align-center justify-center">
               <Button className="start" onClick={() => navigate("/subscribe_free")}>Начать бесплатно</Button>
-            </Reveal>
-            <Reveal>
               <Button className="premium" onClick={() => navigate("/subscribe_premium")}>Попробовать Premium</Button>
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
         </div>
       </section >
       {/* HOWITWORKS END */}
@@ -250,26 +248,26 @@ const Homepage = () => {
       < div className="main" >
         {/* TESTIMONIALS START */}
         < section id='testimonials d-flex' className='testimonials' >
-          <div className="testimonials-card up ">
-            <Reveal width='100%'>
+          <Reveal width='100%'>
+            <div className="testimonials-card up ">
               <img src={Pro13} alt="pro13" />
-            </Reveal>
-          </div>
-          <div className="testimonials-card down">
-            <Reveal width='100%'>
+            </div>
+          </Reveal>
+          <Reveal width='100%'>
+            <div className="testimonials-card down">
               <img src={Pro132} alt="pro13" />
-            </Reveal>
-          </div>
-          <div className="testimonials-card up">
-            <Reveal width='100%'>
+            </div>
+          </Reveal>
+          <Reveal width='100%'>
+            <div className="testimonials-card up">
               <img src={Pro133} alt="pro13" />
-            </Reveal>
-          </div>
-          <div className="testimonials-card down">
-            <Reveal width='100%'>
+            </div>
+          </Reveal>
+          <Reveal width='100%'>
+            <div className="testimonials-card down">
               <img src={Pro134} alt="pro13" />
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
         </section >
         {/* TESTIMONIALS END */}
 

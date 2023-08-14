@@ -5,6 +5,7 @@ import React, { useEffect } from 'react'
 import "./accordionProfile.css"
 import { AccordionDetailss, Accordionn, AccordionSummaryy } from './utils';
 import EngineeringIcon from '@mui/icons-material/Engineering';
+import { Reveal } from '../../reveal';
 
 export default function AccordionProfile({ card }: any) {
     const [expanded, setExpanded] = React.useState<string | false>('panel1');
@@ -31,9 +32,11 @@ export default function AccordionProfile({ card }: any) {
                                 ).map((item: any) => (
                                     <li>
                                         <EngineeringIcon style={{ marginRight: "15px", color: "#E8C488" }} />
-                                        <p>
-                                            {item.trim()}
-                                        </p>
+                                        <Reveal>
+                                            <p>
+                                                {item.trim()}
+                                            </p>
+                                        </Reveal>
                                     </li>
 
                                 ))
@@ -47,52 +50,69 @@ export default function AccordionProfile({ card }: any) {
                     <Typography>Контакты</Typography>
                 </AccordionSummaryy>
                 <AccordionDetailss>
-                    <Typography className='namee'>
-                        {card.name}
-                    </Typography>
-                    <Typography className='tagName'>
-                        Телефон
-                    </Typography>
-                    <Typography className='content'>
-                        {card.mobile}
-                    </Typography>
-                    <Typography className='tagName'>
-                        Электронная почта
-                    </Typography>
-                    <Typography className='content'>
-                        {card.email}
-                    </Typography>
-                    {card.websiteLink && <>
-                        <Typography className='tagName'>
-                            Вебсайт
+                    <Reveal>
+                        <Typography className='namee'>
+                            {card.name}
                         </Typography>
-                        <a href={card.websiteLink} target="_blank">
-                            <Typography className='content'>
-                                {card.websiteLink}
-                            </Typography>
-                        </a>
-                    </>
+                    </Reveal>
+                    <Reveal>
+                        <Typography className='tagName'>
+                            Телефон
+                        </Typography>
+                    </Reveal>
+                    <Reveal>
+                        <Typography className='content'>
+                            {card.mobile}
+                        </Typography>
+                    </Reveal>
+                    <Reveal>
+                        <Typography className='tagName'>
+                            Электронная почта
+                        </Typography>
+                    </Reveal>
+                    <Reveal>
+                        <Typography className='content'>
+                            {card.email}
+                        </Typography>
+                    </Reveal>
+                    {card.websiteLink &&
+                        <Reveal>
+                            <>
+                                <Typography className='tagName'>
+                                    Вебсайт
+                                </Typography>
+                                <a href={card.websiteLink} target="_blank">
+                                    <Typography className='content'>
+                                        {card.websiteLink}
+                                    </Typography>
+                                </a>
+                            </>
+                        </Reveal>
                     }
                     {card.location &&
-                        <>
-                            <Typography className='tagName'>
-                                Адрес
-                            </Typography>
-                            <Typography className='content underline'>
-                                {card.location}
-                            </Typography>
-                        </>
+                        <Reveal>
+                            <>
+                                <Typography className='tagName'>
+                                    Адрес
+                                </Typography>
+                                <Typography className='content underline'>
+                                    {card.location}
+                                </Typography>
+                            </>
+                        </Reveal>
                     }
                     {card.timeFrom && card.timeUntil &&
-                        <>
-                            <Typography className='tagName'>
-                                Время работы
-                            </Typography>
+                        <Reveal>
+                            <>
+                                <Typography className='tagName'>
+                                    Время работы
+                                </Typography>
 
-                            <Typography className='content'>
-                                Понедельник-пятница: {card.timeFrom} - {card.timeUntil}
-                            </Typography>
-                        </>
+                                <Typography className='content'>
+                                    Понедельник-пятница: {card.timeFrom} - {card.timeUntil}
+                                </Typography>
+                            </>
+                        </Reveal>
                     }
                 </AccordionDetailss>
             </Accordionn>

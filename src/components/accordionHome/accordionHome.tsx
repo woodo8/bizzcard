@@ -11,7 +11,7 @@ import { Reveal } from '../../reveal';
 const Accordion = styled((props: AccordionProps) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
-    margin: "30px 0",
+    margin: "10px 0",
     boxShadow: "0px 0px 22px 1px rgba(0, 0, 0, 0.08)",
     borderRadius: "10px",
     '&:not(:last-child)': {
