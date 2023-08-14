@@ -3,8 +3,9 @@ import { Grid, Typography } from '@mui/material';
 import NavbarAuth from '../../components/navbarAuth/navbarAuth';
 import { useNavigate } from 'react-router';
 import "./loginSuccess.css"
+import transition from '../../transition';
 
-export default function LoginSuccess() {
+const LoginSuccess = () => {
     const navigate = useNavigate();
     return (
 
@@ -23,3 +24,5 @@ export default function LoginSuccess() {
         </div>
     )
 }
+
+export default transition(LoginSuccess);

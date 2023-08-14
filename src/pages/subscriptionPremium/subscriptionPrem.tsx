@@ -6,8 +6,9 @@ import TickCircle from '../../assets/images/tick-circle'
 import "./subscriptionPrem.css"
 import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded';
 import { useNavigate } from 'react-router'
+import transition from '../../transition'
 
-export default function SubscriptionPrem() {
+const SubscriptionPrem = () => {
 
     const [menuOpen, setMenuOpen] = useState<boolean>(true);
     const navigate = useNavigate();
@@ -125,3 +126,4 @@ export default function SubscriptionPrem() {
         </Grid>
     )
 }
+export default transition(SubscriptionPrem)

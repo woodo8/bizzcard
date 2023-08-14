@@ -9,9 +9,10 @@ import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded';
 import { useNavigate } from 'react-router'
 import { StateContext } from '../../context/useContext'
 import { useUpdateUserMutation } from '../../services/authApi'
+import transition from '../../transition'
 
 
-export default function SubscriptionFree() {
+const SubscriptionFree = () => {
     const [menuOpen, setMenuOpen] = useState<boolean>(true);
     const navigate = useNavigate();
 
@@ -142,7 +143,7 @@ export default function SubscriptionFree() {
                         <Button onClick={handleOrder} className='simple'>
                             Оформить заказ
                         </Button>
-                        <Button onClick={()=>navigate(-1)} className='cancel'>
+                        <Button onClick={() => navigate(-1)} className='cancel'>
                             Нет, спасибо
                         </Button>
                     </Grid>
@@ -151,3 +152,5 @@ export default function SubscriptionFree() {
         </Grid>
     )
 }
+
+export default transition(SubscriptionFree)

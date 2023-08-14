@@ -19,8 +19,10 @@ import { validateEmail } from '../../utils/validateEmail';
 import CircularProgress from '@mui/material/CircularProgress';
 import { StateContext } from '../../context/useContext';
 import CryptoJS from "crypto-js"
+import PageTransition from '../../components/pageTransition/pageTransition';
+import transition from '../../transition';
 
-export default function Signin() {
+const Signin = () => {
 
     const { setGlobalUser } = useContext(StateContext);
 
@@ -229,6 +231,8 @@ export default function Signin() {
                     Войти в аккаунт
                 </Button>
             </Grid>
+            {/* <PageTransition/> */}
         </Grid>
     )
 }
+export default transition(Signin);

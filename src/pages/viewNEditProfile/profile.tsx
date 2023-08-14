@@ -11,8 +11,9 @@ import { tokenMiddleware } from '../../services/tokenMiddleware'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
 import CircularProgress from '@mui/material/CircularProgress';
+import transition from '../../transition'
 
-export default function Profile() {
+const Profile = () => {
     const { globalUser: user, setGlobalUser } = useContext(StateContext)
 
     const [fullName, setfullName] = useState<string>("");
@@ -147,3 +148,4 @@ export default function Profile() {
         </>
     )
 }
+export default transition(Profile)

@@ -2,7 +2,7 @@
   "name": "bizzcard",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8080/",
+  "proxy": "https://bizzcard-back.onrender.com/",
   "dependencies": {
     "@emotion/cache": "^11.10.5",
     "@emotion/react": "^11.10.6",
@@ -28,6 +28,7 @@
     "draft-js": "^0.11.7",
     "draft-js-export-html": "^1.4.1",
     "draftjs-to-html": "^0.9.1",
+    "framer-motion": "^10.15.1",
     "immutable": "^3.8.2",
     "json-server": "^0.17.2",
     "moment": "^2.29.4",

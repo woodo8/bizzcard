@@ -1,8 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
+import transition from '../../transition';
 import "../loginSuccess/loginSuccess.css"
 
-export default function OrderSuccess() {
+const OrderSuccess = () => {
     const navigate = useNavigate();
     return (
 
@@ -21,3 +22,4 @@ export default function OrderSuccess() {
         </div>
     )
 }
+export default transition(OrderSuccess);

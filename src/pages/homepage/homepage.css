@@ -149,6 +149,7 @@
     font-size: 16px;
     color: #888888;
     margin-bottom: 10px;
+    text-align: center !important;
 }
 
 .functions .heading {
@@ -157,6 +158,7 @@
     color: #303030;
     margin-bottom: 30px;
     letter-spacing: 1px;
+    text-align: center !important;
 }
 
 .functions .content {
@@ -164,6 +166,7 @@
     font-size: 18px;
     color: #888888;
     margin-bottom: 20px;
+    text-align: center !important;
 }
 
 .functions .card {

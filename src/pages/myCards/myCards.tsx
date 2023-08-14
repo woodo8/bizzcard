@@ -17,8 +17,9 @@ import Facebookcard from '../../assets/images/facebookcard';
 import Telegramcard from '../../assets/images/telegramcard';
 import PhoneCard from '../../assets/images/phoneCard';
 import Loader from '../../components/loader/loader';
+import transition from '../../transition';
 
-export default function MyCards() {
+const MyCards = () => {
 
     let token = localStorage.getItem("token");
 
@@ -162,3 +163,5 @@ export default function MyCards() {
         </>
     )
 }
+
+export default transition(MyCards)

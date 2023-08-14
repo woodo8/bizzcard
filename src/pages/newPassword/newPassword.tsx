@@ -18,9 +18,10 @@ import ReportGmailerrorredOutlinedIcon from '@mui/icons-material/ReportGmailerro
 import { useResetPasswordMutation } from '../../services/authApi';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Link } from 'react-router-dom';
+import transition from '../../transition';
 
 
-export default function NewPassword() {
+const NewPassword = () => {
     const navigate = useNavigate()
 
     const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -182,3 +183,4 @@ export default function NewPassword() {
     )
 
 }
+export default transition(NewPassword);

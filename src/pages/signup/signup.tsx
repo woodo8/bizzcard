@@ -19,9 +19,10 @@ import { useNavigate } from 'react-router';
 import { useSignupMutation } from '../../services/authApi';
 import { validateEmail } from '../../utils/validateEmail';
 import CircularProgress from '@mui/material/CircularProgress';
+import transition from '../../transition';
 
 
-export default function Signup() {
+const Signup = () => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const navigate = useNavigate()
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -285,3 +286,4 @@ export default function Signup() {
         </Grid >
     )
 }
+export default transition(Signup);
