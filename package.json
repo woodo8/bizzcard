@@ -2,7 +2,7 @@
   "name": "bizzcard",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://bizzcard-back.onrender.com/",
+  "proxy": "http://159.89.14.209:8080",
   "dependencies": {
     "@emotion/cache": "^11.10.5",
     "@emotion/react": "^11.10.6",
