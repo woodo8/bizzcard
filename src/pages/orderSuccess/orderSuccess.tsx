@@ -17,7 +17,7 @@ const OrderSuccess = () => {
             <div className="info">
                 <h2>Ваш заказ успешно зарегистрирован.</h2>
                 <p>Теперь вы можете создать свою первую визитную карточку.</p>
-                <a onClick={() => navigate("/create_card/0/0")}>Начать</a>
+                <a onClick={() => navigate("/create_card/")}>Начать</a>
             </div>
         </div>
     )

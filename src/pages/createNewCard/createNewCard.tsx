@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, useLayoutEffect } from 'react'
+import React, { useEffect, useState, useContext, useLayoutEffect, useRef } from 'react'
 import NavbarMain from '../../components/navbarMain/navbarMain';
 import { Button, Grid, Typography } from '@mui/material'
 // import TabsUnstyled from "@mui/base/TabsUnstyled"
@@ -37,6 +37,26 @@ export default function CreateNewCard() {
 
     const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty());
 
+    // States to handle input values
+    const [name, setName] = useState<string>("");
+    const [expertise, setExpertise] = useState<string>("");
+    // const [description, setDescription] = useState<string>("");
+    // const [profileImgShape, setprofileImgShape] = useState<ProfileImgShape>(ProfileImgShape.CIRCLE);
+    // const [bgColor, setBgColor] = useState<BgColor>(BgColor.MAIN);
+    // const [mainColor, setMainColor] = useState<MainColor>(MainColor.WHITE);
+    const [profileImg, setprofileImg] = useState<any>();
+    const [backgroundImg, setbackgroundImg] = useState<any>();
+    const [location, setLocation] = useState<string>("");
+    const [linkedin, setLinkedin] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [facebook, setFacebook] = useState<string>("");
+    const [telegram, setTelegram] = useState<string>("");
+    const [instagram, setInstagram] = useState<string>("");
+    const [mobile, setMobile] = useState<string>("");
+    const [website, setWebsite] = useState<string>("");
+    const [services, setServices] = useState<string>("")
+    const [qualities, setQualities] = useState<string>("")
+
 
 
     const [value, setValue] = useState<number>(0);
@@ -44,11 +64,18 @@ export default function CreateNewCard() {
     const navigate = useNavigate();
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        console.log(newValue)
-        setValue(newValue);
-        navigate(`/create_card/${value}/${contactsValue}`)
+        var pattern = /^\d+\.?\d*$/;
+        let isNumber = pattern.test(mobile);
+        let emailIsValid = validateEmail(email);
+        // @ts-ignore
+        const contactInfos = JSON.parse(localStorage.getItem("contactInfos")) || {};
+        if (Object.keys(contactInfos).length == 0 && !name || !email || !mobile || !expertise || !isNumber || !emailIsValid) {
+            return
+        } else {
+            setValue(newValue);
+            // navigate(`/create_card/${newValue}/${contactsValue}`)
+        }
     };
-
 
     const initialize = () => {
         setValue(4)
@@ -56,20 +83,9 @@ export default function CreateNewCard() {
 
     const windowSize = window.innerWidth;
 
-    // useEffect(() => {
-
-    // }, [windowSize])
-
     useEffect(() => {
-        var pattern = /^\d+\.?\d*$/;
-        let isNumber = pattern.test(mobile);
-        let emailIsValid = validateEmail(email)
-        if (!name || !email || !mobile || !expertise || !isNumber || !emailIsValid) {
-            setValue(0);
-            navigate(`/create_card/0/0`);
-        }
-        // value === 4 ? enableScroll() : disableScroll()
-        navigate(`/create_card/${value}/${contactsValue}`)
+        console.log(value, contactsValue)
+        // navigate(`/create_card/${value}/${contactsValue}`)
         if (windowSize > 769) {
             enableScroll()
         }
@@ -84,26 +100,38 @@ export default function CreateNewCard() {
         setServices(localServices)
     }, [value])
 
+    useEffect(() => {
+        // setValue(Number(pageValue));
+        console.log(name)
+    }, [])
+
+    const timeoutRef = useRef(null);
 
     useEffect(() => {
-        setValue(Number(pageValue));
-        console.log(typeof pageValue);
+        if (!timeoutRef.current) {
+            // @ts-ignore
+            timeoutRef.current = setTimeout(() => {
+                // @ts-ignore
+                let storageInfos = JSON.parse(localStorage.getItem("contactInfos")) || {};
+                if (Object.keys(storageInfos).length !== 0) {
+                    let continuee = window.confirm("Do you want to continue with saved data?");
+                    if (!continuee) {
+                        localStorage.removeItem("contactInfos");
+                        localStorage.removeItem("draftContent");
+                        localStorage.removeItem("services");
+                        window.location.reload();
+                    }
+                }
+            }, 2000);
+        }
+
+        return () => {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+                timeoutRef.current = null;
+            }
+        };
     }, [])
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         // @ts-ignore
-    //         let storageInfos = JSON.parse(localStorage.getItem("contactInfos")) || {};
-    //         if (Object.keys(storageInfos).length !== 0) {
-    //             let continuee = window.confirm("Do you want to continue with saved data?");
-    //             if (!continuee) {
-    //                 localStorage.removeItem("contactInfos");
-    //                 localStorage.removeItem("draftContent");
-    //                 localStorage.removeItem("services");
-    //                 window.location.reload()
-    //             }
-    //         }
-    //     }, 2000);
-    // }, [])
 
     function disableScroll() {
         // Get the current page scroll position in the vertical direction
@@ -129,26 +157,6 @@ export default function CreateNewCard() {
     }
 
 
-    // States to handle input values
-    const [name, setName] = useState<string>("");
-    const [expertise, setExpertise] = useState<string>("");
-    const [description, setDescription] = useState<string>("");
-    const [profileImg, setprofileImg] = useState<any>();
-    const [profileImgShape, setprofileImgShape] = useState<ProfileImgShape>(ProfileImgShape.CIRCLE);
-    const [bgColor, setBgColor] = useState<BgColor>(BgColor.MAIN);
-    const [mainColor, setMainColor] = useState<MainColor>(MainColor.WHITE);
-    const [backgroundImg, setbackgroundImg] = useState<any>();
-    const [location, setLocation] = useState<string>("");
-    const [linkedin, setLinkedin] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
-    const [facebook, setFacebook] = useState<string>("");
-    const [telegram, setTelegram] = useState<string>("");
-    const [instagram, setInstagram] = useState<string>("");
-    const [mobile, setMobile] = useState<string>("");
-    const [website, setWebsite] = useState<string>("");
-    const [services, setServices] = useState<string>("")
-    const [qualities, setQualities] = useState<string>("")
-
     let StatesForContacts = {
         pageValue,
         name,
@@ -171,7 +179,7 @@ export default function CreateNewCard() {
         setFacebook,
         setMobile,
         setInstagram,
-        contactsValue,
+        contactsValue: contactsValue,
         setValue
     }
 

@@ -42,11 +42,21 @@ export default function ContactInfoCreate(props: any) {
     const [value, setValue] = useState<number>(0);
     const [disableChanges, setdisableChanges] = useState<boolean>(false)
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        setValue(newValue);
+        var pattern = /^\d+\.?\d*$/;
+        let isNumber = pattern.test(mobile);
+        let emailIsValid = validateEmail(email);
+        // @ts-ignore
+        const contactInfos = JSON.parse(localStorage.getItem("contactInfos")) || {};
+        if (Object.keys(contactInfos).length == 0 && !name || !email || !mobile || !expertise || !isNumber || !emailIsValid) {
+            return
+        } else {
+            setValue(newValue);
+        }
     };
 
     useEffect(() => {
-        navigate(`/create_card/${pageValue}/${value}`);
+        console.log(pageValue, value)
+        // navigate(`/create_card/${pageValue}/${value}`);
         // @ts-ignore
         let storageInfos = JSON.parse(localStorage.getItem("contactInfos")) || {};
         storageInfos && initialize(storageInfos);
@@ -57,11 +67,10 @@ export default function ContactInfoCreate(props: any) {
             if (!name || !email || !mobile || !expertise || !emailIsValid || !isNumber) {
                 setValue(0)
                 setdisableChanges(true)
-                navigate(`/create_card/0/0`);
+                // navigate(`/create_card/0/0`);
             } else {
                 console.log("error")
                 setdisableChanges(false)
-
             }
         }
     }, [value])
@@ -90,7 +99,7 @@ export default function ContactInfoCreate(props: any) {
     }
 
     useEffect(() => {
-        setValue(Number(contactsValue))
+        // setValue(Number(contactsValue))
         // @ts-ignore
         let storageInfos = JSON.parse(localStorage.getItem("contactInfos")) || {};
         initialize(storageInfos);
@@ -99,7 +108,6 @@ export default function ContactInfoCreate(props: any) {
     const handleSubmitBase = (e: any) => {
         e.preventDefault();
         !name ? setNameError("Please enter the Name!") : setNameError("");
-
 
         !email ? setEmailError("Please enter the Email!") : setEmailError("");
         let emailIsValid = validateEmail(email);
@@ -129,6 +137,7 @@ export default function ContactInfoCreate(props: any) {
 
         localStorage.setItem("contactInfos", JSON.stringify(cardInfos));
         setValue(1);
+        // navigate(`/create_card/1/0`);  
     }
     const handleSubmitSecond = (e: any) => {
         e.preventDefault();
@@ -148,7 +157,7 @@ export default function ContactInfoCreate(props: any) {
         let isNumber = pattern.test(mobile);  // returns a boolean
         if (!name || !email || !mobile || !expertise || !emailIsValid || !isNumber) {
             setValue(0)
-            navigate(`/create_card/0/0`);
+            // navigate(`/create_card/0/0`);
         } else {
             setPageValue(1);
         }

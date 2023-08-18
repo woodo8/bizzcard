@@ -111,7 +111,8 @@ function App() {
                   path="/my_cards/"
                   element={<MyCards />} />
                 <Route
-                  path="/create_card/:value/:contactsValue"
+                  // path="/create_card/:value/:contactsValue"
+                  path="/create_card/"
                   element={<CreateNewCard />} />
               </Route>
             </Routes>

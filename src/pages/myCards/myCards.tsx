@@ -53,7 +53,7 @@ const MyCards = () => {
                 </Grid>
                 <Grid className='card-item bg-main' item xs={6} lg={4}>
                     <Button onClick={() => {
-                        navigate("/create_card/0/0")
+                        navigate("/create_card/")
                     }} className="card-content">
                         +
                     </Button>

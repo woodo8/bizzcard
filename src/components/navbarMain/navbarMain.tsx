@@ -145,7 +145,7 @@ export default function NavbarMain() {
                     <ul>
                         <li onClick={() => navigate("/profile")} className='d-flex align-center'><ProfileImg />My profile</li>
                         <li onClick={() => navigate("/my_cards")} className='d-flex align-center'><WidgetsIcon />My cards</li>
-                        <li onClick={() => navigate("/create_card/:value/:contactsValue")} className='d-flex align-center'>
+                        <li onClick={() => navigate("/create_card/")} className='d-flex align-center'>
                             <Button className="premium-btn">
                                 Create New Card
                             </Button>
