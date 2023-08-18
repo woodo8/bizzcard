@@ -4,6 +4,7 @@ import "./hero.css"
 import { StateContext } from '../../context/useContext'
 import { useNavigate } from 'react-router';
 import { Reveal } from '../../reveal';
+import { useTranslation } from 'react-i18next';
 export default function Hero() {
     const { globalUser } = useContext(StateContext);
     const navigate = useNavigate()
@@ -14,20 +15,24 @@ export default function Hero() {
             : navigate("/my_cards")
             : navigate("/signin")
     }
+    const { t } = useTranslation();
 
     return (
         <div className="heroWrapper">
             <div className='hero'>
                 <Reveal>
-                    <Typography className='typographyhero'>BIZCARD - это новый взгляд на “умных” визитных карточек</Typography>
+                    <Typography className='typographyhero'>{t("hero-top")}</Typography>
                 </Reveal>
                 <Reveal>
-                    <Typography className='headerHero' variant='h2'>Поднимитесь на новый уровень взаимодействия с клиентами</Typography>
+                    <Typography className='headerHero' variant='h2'>
+                        {t("hero-middle")}
+                    </Typography>
+                    {/* Поднимитесь на новый уровень взаимодействия с клиентами */}
                 </Reveal>
                 <Reveal>
-                    <Typography className='typographyhero'>Попробуйте прямо сейчас создать визитку. Мы предлагаем красивый и понятный дизайн и классное взаимодействие. Это наш главный ключ к успеху!</Typography>
+                    <Typography className='typographyhero'>{t("hero-bottom")}</Typography>
                 </Reveal>
-                <Button onClick={handleNavigate} className='buttonHero'>Создать бесплатную визитку</Button>
+                <Button onClick={handleNavigate} className='buttonHero'>{t("hero-button")}</Button>
             </div>
         </div >
     )

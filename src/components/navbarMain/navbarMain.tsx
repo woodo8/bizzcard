@@ -8,6 +8,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import ProfileImg from '../../assets/images/profileImg.js';
 import RussiaFlag from '../../assets/images/russiaFlag.js';
+import UzFlag from '../../assets/images/uzFlag.js';
+import UkFlag from "../../assets/images/uk-flag.png"
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { useLocation, useNavigate } from 'react-router';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
@@ -17,6 +19,7 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useTranslation } from 'react-i18next';
 function useScrollDirection() {
     const [scrollDirection, setScrollDirection] = useState<null | string>(null);
 
@@ -42,7 +45,7 @@ function useScrollDirection() {
 
 export default function NavbarMain() {
     const { globalUser: user } = useContext(StateContext);
-
+    const { i18n } = useTranslation();
     const [lang, setLang] = useState<string>('ru');
     const [menuActive, setMenuActive] = useState<boolean>(false);
 
@@ -51,7 +54,12 @@ export default function NavbarMain() {
 
     const handleChange = (event: SelectChangeEvent) => {
         setLang(event.target.value as string);
+        i18n.changeLanguage(event.target.value);
     };
+    useEffect(() => {
+      setLang(i18n.language)
+    }, [])
+
     let location = useLocation();
 
     const scrollDirection = useScrollDirection();
@@ -130,10 +138,9 @@ export default function NavbarMain() {
                             className="langSelect d-flex align-center"
                             variant='standard'
                         >
-
-                            <MenuItem value={"uz"}><RussiaFlag /> UZ</MenuItem>
+                            <MenuItem value={"uz"}><UzFlag /> UZ</MenuItem>
                             <MenuItem value={"ru"}><RussiaFlag /> RU</MenuItem>
-                            <MenuItem value={"en"}><RussiaFlag /> EN</MenuItem>
+                            <MenuItem value={"en"}><img style={{width:"17px", height:"19px", margin:"0 3px"}} src={UkFlag} alt="uk flag"/>  EN</MenuItem>
                         </Select>
                     </FormControl>
                 </li>

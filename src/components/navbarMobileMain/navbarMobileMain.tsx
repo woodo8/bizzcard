@@ -5,7 +5,8 @@ import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { useNavigate } from 'react-router';
 import RussiaFlag from '../../assets/images/russiaFlag.js';
-
+import UzFlag from '../../assets/images/uzFlag.js';
+import UkFlag from "../../assets/images/uk-flag.png";
 
 interface propsTypes {
     lang: string;
@@ -85,16 +86,16 @@ export default function NavbarMobileMain(props: propsTypes) {
                             id="demo-simple-select"
                             value={lang}
                             label="Age"
-                            onChange={(e)=>{
+                            onChange={(e) => {
                                 handleChange(e)
                                 closeMenu()
                             }}
                             className="langSelectMobile d-flex align-center"
                             variant='standard'
                         >
-                            <MenuItem value={"uz"}><RussiaFlag /> UZ</MenuItem>
+                            <MenuItem value={"uz"}><UzFlag /> UZ</MenuItem>
                             <MenuItem value={"ru"}><RussiaFlag /> RU</MenuItem>
-                            <MenuItem value={"en"}><RussiaFlag /> EN</MenuItem>
+                            <MenuItem value={"en"}><img style={{ width: "17px", height: "19px", margin: "0 3px" }} src={UkFlag} alt="uk flag" />  EN</MenuItem>
                         </Select>
                     </FormControl>
                 </li>
