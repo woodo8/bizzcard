@@ -33,6 +33,7 @@ export default function ContactInfoCreate(props: any) {
         instagram,
         mobile,
         pageValue,
+        emailValidationFailed,
         contactsValue,
         setValue: setPageValue,
     } = props.StatesForContacts;
@@ -59,6 +60,9 @@ export default function ContactInfoCreate(props: any) {
         // navigate(`/create_card/${pageValue}/${value}`);
         // @ts-ignore
         let storageInfos = JSON.parse(localStorage.getItem("contactInfos")) || {};
+        if(emailValidationFailed){
+            setEmailError("Please enter valid email")
+        }
         storageInfos && initialize(storageInfos);
         let emailIsValid = validateEmail(email);
         var pattern = /^\d+\.?\d*$/;

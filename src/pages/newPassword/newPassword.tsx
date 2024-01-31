@@ -49,21 +49,25 @@ const NewPassword = () => {
     const { token } = useParams();
 
     const handleSubmit = async (e: any) => {
+        console.log("i am working")
         e.preventDefault();
         if (password.length === 0) {
-            setPasswordErorr("Password length should be no less than 8");
+            return setPasswordErorr("Password length should be no less than 8");
         } else {
             setPasswordErorr("")
         }
 
         if (password !== password1) {
-            setConfirmPasswordErorr("Passwords do not match");
+            return setConfirmPasswordErorr("Passwords do not match");
         } else {
             setConfirmPasswordErorr("")
         }
         try {
+            console.log("we are in try block")
             const data = { newPassword: password, confirmPassword: password1 }
             await changePassword({ data, token })
+            // navigate("/signin")
+            console.log(token)
         } catch (error) {
             setConfirmPasswordErorr("Something went wrong, please try again later");
         }
@@ -75,7 +79,7 @@ const NewPassword = () => {
             if (error.data === "Passwords do not match") {
                 setConfirmPasswordErorr("Passwords do not match!");
             } else {
-                setConfirmPasswordErorr("")
+                setConfirmPasswordErorr("");
             }
         }
     }, [isLoading])
@@ -100,6 +104,8 @@ const NewPassword = () => {
                 <Grid item xs={12} sm={7} md={6} lg={5} className="wrapper d-block">
                     <Typography className='heading' variant='h4'>Новый пароль</Typography>
                     <Typography className='description'> Пожалуйста, введите новый пароль и подтвердите его!</Typography>
+                    <h5>{confirmPasswordErorr}</h5>
+                    <h5>{passwordErorr}</h5>
                     <FormControl className="inputbox" fullWidth sx={{ m: 1 }} variant="outlined">
                         <OutlinedInput
                             id="outlined-adornment-password"

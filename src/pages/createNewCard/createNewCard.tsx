@@ -57,7 +57,7 @@ export default function CreateNewCard() {
     const [services, setServices] = useState<string>("")
     const [qualities, setQualities] = useState<string>("")
 
-
+    const [emailValidationFailed, setEmailValidationFailed] = useState(false)
 
     const [value, setValue] = useState<number>(0);
 
@@ -179,6 +179,7 @@ export default function CreateNewCard() {
         setFacebook,
         setMobile,
         setInstagram,
+        emailValidationFailed,
         contactsValue: contactsValue,
         setValue
     }
@@ -193,7 +194,7 @@ export default function CreateNewCard() {
         setValue(2)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         try {
             let formData = new FormData();
             // @ts-ignore
@@ -202,7 +203,7 @@ export default function CreateNewCard() {
             if (!contactInfos) {
                 return
             }
-
+            console.log(contactInfos)
             globalUser.subscription === null ?
                 formData.append("type", "FREE") :
                 formData.append("type", globalUser.subscription);
@@ -227,7 +228,7 @@ export default function CreateNewCard() {
             localQualities && formData.append("qualities", localQualities);
             profileImg && profileImg.img && formData.append("profile_img", profileImg.img);
             backgroundImg && backgroundImg.img && formData.append("background_img", backgroundImg.img);
-            newCard({ token: token, body: formData, id: globalUser.id })
+            await newCard({ token: token, body: formData, id: globalUser.id })
         } catch (error) {
             console.log(error)
         }
@@ -244,9 +245,14 @@ export default function CreateNewCard() {
             navigate(`/bizz_card/${data._id}`);
         }
         console.log(error)
-        if (error) {
-            alert("Something went wrong, please try again later. We try to save all the data you typed in, while you leave!")
-            navigate("/my_cards")
+        if (error && "data" in error) {
+            if (error.data === '"email" must be a valid email') {
+                setEmailValidationFailed(true);
+                setValue(0)
+            } else {
+                alert("Something went wrong, please try again later. We try to save all the data you typed in, while you leave!")
+                navigate("/my_cards")
+            }
         }
     }, [isLoading])
     return (

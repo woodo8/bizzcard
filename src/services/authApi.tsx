@@ -53,6 +53,9 @@ export const authApi = createApi({
         }),
         resetPassword: builder.mutation({
             query: (payload) => ({
+                headers: {
+                    authorization: `Bearer ${payload.token}`,
+                },
                 url: `/auth/reset_password`,
                 method: "PATCH",
                 body: payload.data,
